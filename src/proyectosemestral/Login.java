@@ -32,7 +32,7 @@ public class Login extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         bg = new javax.swing.JPanel();
         lblNombreEmpresa = new javax.swing.JLabel();
-        Logo = new javax.swing.JLabel();
+        lblLogo = new javax.swing.JLabel();
         ImagenInicio = new javax.swing.JLabel();
         lblinicioSesion = new javax.swing.JLabel();
         lblcontrasena = new javax.swing.JLabel();
@@ -43,7 +43,6 @@ public class Login extends javax.swing.JFrame {
         psfContrasena = new javax.swing.JPasswordField();
         bgEntrar = new javax.swing.JPanel();
         lblEntrar = new javax.swing.JLabel();
-        salir1 = new proyectosemestral.Salir();
 
         jLabel2.setText("jLabel2");
 
@@ -61,9 +60,9 @@ public class Login extends javax.swing.JFrame {
         lblNombreEmpresa.setText("ON SITE CLIMATIZACION");
         bg.add(lblNombreEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 140, 280, 70));
 
-        Logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectosemestral/images/LogoOnsite.png"))); // NOI18N
-        Logo.setText("jLabel3");
-        bg.add(Logo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 150, 80));
+        lblLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectosemestral/images/LogoOnsite.png"))); // NOI18N
+        lblLogo.setText("jLabel3");
+        bg.add(lblLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 150, 80));
 
         ImagenInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectosemestral/images/Inicio.jpg"))); // NOI18N
         ImagenInicio.setText("jLabel4");
@@ -127,7 +126,6 @@ public class Login extends javax.swing.JFrame {
         );
 
         bg.add(bgEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, 80, 30));
-        bg.add(salir1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -166,19 +164,18 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ImagenInicio;
-    private javax.swing.JLabel Logo;
     private javax.swing.JPanel bg;
     private javax.swing.JPanel bgEntrar;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JLabel lblEntrar;
+    private javax.swing.JLabel lblLogo;
     private javax.swing.JLabel lblNombreEmpresa;
     private javax.swing.JLabel lblUsuario;
     private javax.swing.JLabel lblcontrasena;
     private javax.swing.JLabel lblinicioSesion;
     private javax.swing.JPasswordField psfContrasena;
-    private proyectosemestral.Salir salir1;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }
