@@ -108,7 +108,7 @@ public class Login extends javax.swing.JFrame {
         lblEntrar.setForeground(new java.awt.Color(255, 255, 255));
         lblEntrar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblEntrar.setText("ENTRAR");
-        lblEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblEntrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         javax.swing.GroupLayout bgEntrarLayout = new javax.swing.GroupLayout(bgEntrar);
         bgEntrar.setLayout(bgEntrarLayout);
@@ -160,6 +160,7 @@ public class Login extends javax.swing.JFrame {
                 new Login().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

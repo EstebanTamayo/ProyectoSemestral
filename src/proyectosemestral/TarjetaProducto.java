@@ -8,12 +8,12 @@ package proyectosemestral;
  *
  * @author esteb
  */
-public class SplitMuro extends javax.swing.JPanel {
+public class TarjetaProducto extends javax.swing.JPanel {
 
     /**
      * Creates new form SplitMuro
      */
-    public SplitMuro() {
+    public TarjetaProducto() {
         initComponents();
     }
 
@@ -27,24 +27,16 @@ public class SplitMuro extends javax.swing.JPanel {
     private void initComponents() {
 
         bg = new javax.swing.JPanel();
-        lblImagenSplit = new javax.swing.JLabel();
         PanelInformacion = new javax.swing.JPanel();
-        lblPrecio = new javax.swing.JLabel();
         lblMarca = new javax.swing.JLabel();
         lblTipo = new javax.swing.JLabel();
+        lblPrecio = new javax.swing.JLabel();
+        jPanelImage = new javax.swing.JPanel();
+        lblImagenSplit = new javax.swing.JLabel();
 
         bg.setBackground(new java.awt.Color(255, 255, 255));
 
-        lblImagenSplit.setForeground(new java.awt.Color(255, 255, 255));
-        lblImagenSplit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblImagenSplit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectosemestral/images/SplitMur.png"))); // NOI18N
-        lblImagenSplit.setText("Split muro");
-
         PanelInformacion.setBackground(new java.awt.Color(255, 255, 255));
-
-        lblPrecio.setForeground(new java.awt.Color(0, 0, 0));
-        lblPrecio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPrecio.setText("Precio$");
 
         lblMarca.setForeground(new java.awt.Color(0, 0, 0));
         lblMarca.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -54,48 +46,72 @@ public class SplitMuro extends javax.swing.JPanel {
         lblTipo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTipo.setText("Tipo");
 
+        lblPrecio.setForeground(new java.awt.Color(0, 0, 0));
+        lblPrecio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPrecio.setText("Precio$");
+
         javax.swing.GroupLayout PanelInformacionLayout = new javax.swing.GroupLayout(PanelInformacion);
         PanelInformacion.setLayout(PanelInformacionLayout);
         PanelInformacionLayout.setHorizontalGroup(
             PanelInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PanelInformacionLayout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addComponent(lblPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(122, 122, 122)
+                .addGroup(PanelInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelInformacionLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
         );
         PanelInformacionLayout.setVerticalGroup(
             PanelInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PanelInformacionLayout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
-                .addGroup(PanelInformacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(PanelInformacionLayout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(lblMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48))
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
+
+        jPanelImage.setBackground(new java.awt.Color(255, 255, 255));
+
+        lblImagenSplit.setForeground(new java.awt.Color(255, 255, 255));
+        lblImagenSplit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblImagenSplit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/proyectosemestral/images/SplitMur.png"))); // NOI18N
+        lblImagenSplit.setText("Split muro");
+
+        javax.swing.GroupLayout jPanelImageLayout = new javax.swing.GroupLayout(jPanelImage);
+        jPanelImage.setLayout(jPanelImageLayout);
+        jPanelImageLayout.setHorizontalGroup(
+            jPanelImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelImageLayout.createSequentialGroup()
+                .addContainerGap(96, Short.MAX_VALUE)
+                .addComponent(lblImagenSplit, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(82, 82, 82))
+        );
+        jPanelImageLayout.setVerticalGroup(
+            jPanelImageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelImageLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(lblImagenSplit, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout bgLayout = new javax.swing.GroupLayout(bg);
         bg.setLayout(bgLayout);
         bgLayout.setHorizontalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(PanelInformacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanelImage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, bgLayout.createSequentialGroup()
-                .addContainerGap(42, Short.MAX_VALUE)
-                .addComponent(lblImagenSplit, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34))
+                .addContainerGap()
+                .addComponent(PanelInformacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         bgLayout.setVerticalGroup(
             bgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(bgLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(lblImagenSplit, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanelImage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(PanelInformacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -116,6 +132,7 @@ public class SplitMuro extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelInformacion;
     private javax.swing.JPanel bg;
+    private javax.swing.JPanel jPanelImage;
     private javax.swing.JLabel lblImagenSplit;
     private javax.swing.JLabel lblMarca;
     private javax.swing.JLabel lblPrecio;
