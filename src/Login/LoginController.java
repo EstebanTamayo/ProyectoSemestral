@@ -4,8 +4,9 @@
  */
 package Login;
 
+import Favoritos.PantallaFavoritos;
 import Inicio.PantallaInicio;
-import javax.swing.JOptionPane;
+import Listado.PantallaLista;
 
 /**
  *
@@ -22,7 +23,9 @@ public class LoginController {
    
     public void EnterAction(String user, String pass){
         if(loginDataModel.getUser(user, pass)){
-            PantallaInicio p = new PantallaInicio();
+            //PantallaInicio p = new PantallaInicio();
+            PantallaLista p = new PantallaLista();
+            //PantallaFavoritos p = new PantallaFavoritos();
             p.setVisible(true);
             login.dispose();
         }

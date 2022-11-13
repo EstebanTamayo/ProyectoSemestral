@@ -4,6 +4,11 @@
  */
 package Creacion;
 
+import Entidades.Ventilador;
+import Entidades.TipoEquipo;
+import Entidades.Categoria;
+import Entidades.Capacidad;
+import Entidades.Refrigerante;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -127,7 +132,7 @@ public class CreationDataModel {
                         resultSet.getInt(1 ), 
                         resultSet.getInt(2 )
                     )
-                );
+                );  
             }
 
             connection.close();
@@ -142,24 +147,24 @@ public class CreationDataModel {
     
     public boolean addVentilador(Ventilador ventilador){
          try{
-            String sql = "INSERT INTO ventiladores(codigo, categoria, capacidad, TipoEquipo, EspacioMaximo, marca, modelo, ControlRemoto, Instalacion, precio, ancho, alto, descripcion, refrigerante) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO ventiladores(id, codigo, categoria, capacidad, TipoEquipo, EspacioMaximo, marca, modelo, ControlRemoto, Instalacion, precio, ancho, alto, descripcion, refrigerante) VALUES(NULL, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             Connection connection = DriverManager.getConnection( DataConnection.stringDB, 
                     DataConnection.user,DataConnection.pass );
 
             PreparedStatement statement = connection.prepareStatement( sql );
-            
+             
             statement.setString(1, ventilador.getCodigo());
             statement.setString(2, ventilador.getCategoria());
             statement.setInt(3, ventilador.getCapacidad());
             statement.setString(4, ventilador.getTipoEquipo());
-            statement.setDouble(5, ventilador.getEspacioMaximo());
+            statement.setInt(5, ventilador.getEspacioMaximo());
             statement.setString(6, ventilador.getMarca());
             statement.setString(7, ventilador.getModelo());
             statement.setBoolean(8, ventilador.isControlRemoto());
             statement.setBoolean(9, ventilador.isInstalacion());
             statement.setInt(10, ventilador.getPrecio());
-            statement.setDouble(11, ventilador.getAncho());
-            statement.setDouble(12, ventilador.getAlto());
+            statement.setInt(11, ventilador.getAncho());
+            statement.setInt(12, ventilador.getAlto());
             statement.setString(13, ventilador.getDescripcion());
             statement.setString(14, ventilador.getRefrigerante());
             statement.executeUpdate();

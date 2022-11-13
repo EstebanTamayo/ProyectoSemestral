@@ -4,17 +4,29 @@
  */
 package Creacion;
 
+import Entidades.Ventilador;
+import Entidades.TipoEquipo;
+import Entidades.Categoria;
+import Entidades.Capacidad;
+import Entidades.Refrigerante;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.ListCellRenderer;
 import javax.swing.UIManager;
+import proyectosemestral.DataConnection;
 
 /**
  *
@@ -55,9 +67,55 @@ public class PantallaCreacion extends javax.swing.JFrame {
         creationController = new CreationController(this);
         
         initComponents();
-                
+              
         jScrollPane1.getVerticalScrollBar().setUnitIncrement(16);
+        
+        barraPanelCreacion1.jBackButton.addActionListener((e) -> {
+            creationController.BackButton();
+        });
         barraPanelCreacion1.jContinueButton.setEnabled(false);
+        barraPanelCreacion1.jContinueButton.addActionListener((ActionEvent e) -> {
+            
+            Ventilador v = new Ventilador(
+                jCodigoEquipoField.jTextField.getText(),
+                (String)jCategoriaEquipoField.jComboBox.getSelectedItem(),
+                Integer.valueOf((String)jCapacidadField.jComboBox.getSelectedItem()),
+                (String)jCategoriaEquipoField.jComboBox.getSelectedItem(),
+                Integer.valueOf(jEspacioMaximoField.jTextField.getText()),
+                jMarcaEquipoField.jTextField.getText(),
+                jModeloEquipoField.jTextField.getText(),
+                jControlRemotoField.jCheckBox.isSelected(),
+                jInstalacionField.jCheckBox.isSelected(),
+                Integer.valueOf(jPrecioField.jTextField.getText()),
+                Integer.valueOf(jAnchoField.jTextField.getText()),
+                Integer.valueOf(jAltoField.jTextField.getText()),
+                jDescripcionField.jTextArea.getText(),
+                (String)jRefrigeranteField.jComboBox.getSelectedItem()
+            );
+            
+            if(creationController.addVentilador(v))
+            {
+                jCodigoEquipoField.jTextField.setText("");
+                jCategoriaEquipoField.jComboBox.setSelectedIndex(0);
+                jCapacidadField.jComboBox.setSelectedIndex(0);
+                jCategoriaEquipoField.jComboBox.setSelectedIndex(0);
+                jEspacioMaximoField.jTextField.setText("");
+                jMarcaEquipoField.jTextField.setText("");
+                jModeloEquipoField.jTextField.setText("");
+                jControlRemotoField.jCheckBox.setSelected(false);
+                jInstalacionField.jCheckBox.setSelected(false);
+                jPrecioField.jTextField.setText("");
+                jAnchoField.jTextField.setText("");
+                jAltoField.jTextField.setText("");
+                jDescripcionField.jTextArea.setText("");
+                jRefrigeranteField.jComboBox.setSelectedIndex(0);
+                JOptionPane.showMessageDialog(this, "Ventilador creado", "Exito", 1);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(this, "Error al crear. Intente denuevo", "Error", 0);
+            }
+        });
         
         jCodigoEquipoField.jTitleLabel.setText("Codigo del equipo");
         jCodigoEquipoField.jTextField.setText("escribe el codigo del equipo");
@@ -420,27 +478,7 @@ public class PantallaCreacion extends javax.swing.JFrame {
         if(codigoEquipoOK && marcaEquipoOK && modeloEquipoOK && espacioMaximoOK 
             && precioOK && anchoOK && altoOK && descripcionOK
             && categoriaEquipoOK && tipoEquipoOK && capacidadOK && refrigeranteOK
-        ){   
-            Ventilador v = new Ventilador(
-                jCodigoEquipoField.jTextField.getText(),
-                (String)jCategoriaEquipoField.jComboBox.getSelectedItem(),
-                Integer.valueOf((String)jCapacidadField.jComboBox.getSelectedItem()),
-                (String)jCategoriaEquipoField.jComboBox.getSelectedItem(),
-                Double.valueOf(jEspacioMaximoField.jTextField.getText()),
-                jMarcaEquipoField.jTextField.getText(),
-                jModeloEquipoField.jTextField.getText(),
-                jControlRemotoField.jCheckBox.isSelected(),
-                jInstalacionField.jCheckBox.isSelected(),
-                Integer.valueOf(jPrecioField.jTextField.getText()),
-                Double.valueOf(jAnchoField.jTextField.getText()),
-                Double.valueOf(jAltoField.jTextField.getText()),
-                jDescripcionField.jTextArea.getText(),
-                (String)jRefrigeranteField.jComboBox.getSelectedItem()
-            );
-            
-            System.out.println("req");
-            System.out.println(creationController.addVentilador(v));
-            
+        ){  
             barraPanelCreacion1.jContinueButton.setEnabled(true);
         }
         else{

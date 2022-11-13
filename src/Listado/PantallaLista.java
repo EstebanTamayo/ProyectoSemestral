@@ -4,8 +4,18 @@
  */
 package Listado;
 
+import Entidades.VentiladorItemDTO;
 import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import javax.swing.DefaultListSelectionModel;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.UIManager;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -13,11 +23,31 @@ import javax.swing.UIManager;
  */
 public class PantallaLista extends javax.swing.JFrame {
 
+    private ListadoController listadoController;
+    private String[]          colums = { "modelo", "marca", "tipo equipo", "precio" };
+    private ArrayList<String[]> data   = new ArrayList<>();
     /**
      * Creates new form PantallaLista
      */
     public PantallaLista() {
+        
+        listadoController = new ListadoController(this);
+        
         initComponents();
+
+        for (VentiladorItemDTO ventiladorDTO : listadoController.getVentiladoresItems()) {
+            data.add(new String[]{
+                ventiladorDTO.getModelo(),
+                ventiladorDTO.getMarca(),
+                ventiladorDTO.getTipoEquipo(),
+                ventiladorDTO.getPrecio().toString()
+            });
+        }
+        
+        jButton1Productos.setEnabled(false);
+        
+        DefaultTableModel model  = new DefaultTableModel( data.stream().toArray(String[][]::new), colums );
+        jTable1.setModel( model );
     }
 
     /**
@@ -32,12 +62,10 @@ public class PantallaLista extends javax.swing.JFrame {
         barraBotonesSuperior1 = new proyectosemestral.Paneles.BarraBotonesSuperior();
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
-        tarjetaProducto1 = new proyectosemestral.Paneles.TarjetaProducto();
-        barraBotonesSuperior2 = new proyectosemestral.Paneles.BarraBotonesSuperior();
         panelFiltro1 = new proyectosemestral.Paneles.PanelFiltro();
-        tarjetaProducto5 = new proyectosemestral.Paneles.TarjetaProducto();
-        tarjetaProducto6 = new proyectosemestral.Paneles.TarjetaProducto();
-        tarjetaProducto7 = new proyectosemestral.Paneles.TarjetaProducto();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jButton1Productos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -49,6 +77,26 @@ public class PantallaLista extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(1280, 920));
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTable1MousePressed(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jTable1);
+
+        jButton1Productos.setText("jButton1");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -56,37 +104,23 @@ public class PantallaLista extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panelFiltro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(tarjetaProducto1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(tarjetaProducto5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(397, 397, 397)
-                        .addComponent(tarjetaProducto6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(397, 397, 397)
-                        .addComponent(tarjetaProducto7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(536, 536, 536))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 756, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(509, 509, 509))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(barraBotonesSuperior2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(812, 812, 812)
+                .addComponent(jButton1Productos)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(barraBotonesSuperior2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(75, 75, 75)
+                .addComponent(jButton1Productos)
+                .addGap(140, 140, 140)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tarjetaProducto1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panelFiltro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(tarjetaProducto5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tarjetaProducto6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tarjetaProducto7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -105,6 +139,23 @@ public class PantallaLista extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTable1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MousePressed
+        
+        if(evt.getClickCount() == 2){
+            int row = jTable1.getSelectedRow();
+            listadoController.GoItem(row);
+        }
+        else if(evt.getButton() == MouseEvent.BUTTON3)
+        {
+            int row = jTable1.rowAtPoint(evt.getPoint());
+            if (row >= 0 && row < jTable1.getRowCount()) {
+                jTable1.setRowSelectionInterval(row, row);
+            } else {
+                jTable1.clearSelection();
+            }
+        }
+    }//GEN-LAST:event_jTable1MousePressed
 
     /**
      * @param args the command line arguments
@@ -127,13 +178,11 @@ public class PantallaLista extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private proyectosemestral.Paneles.BarraBotonesSuperior barraBotonesSuperior1;
-    private proyectosemestral.Paneles.BarraBotonesSuperior barraBotonesSuperior2;
+    private javax.swing.JButton jButton1Productos;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     private proyectosemestral.Paneles.PanelFiltro panelFiltro1;
-    private proyectosemestral.Paneles.TarjetaProducto tarjetaProducto1;
-    private proyectosemestral.Paneles.TarjetaProducto tarjetaProducto5;
-    private proyectosemestral.Paneles.TarjetaProducto tarjetaProducto6;
-    private proyectosemestral.Paneles.TarjetaProducto tarjetaProducto7;
     // End of variables declaration//GEN-END:variables
 }

@@ -12,4 +12,5 @@ public class DataConnection {
     public static final String stringDB = "jdbc:mysql://localhost:3306/ventilador";
     public static final String user     = "root";
     public static final String pass     = "";
+    public static int userId = 0;
 }

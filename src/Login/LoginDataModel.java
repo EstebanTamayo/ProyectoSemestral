@@ -22,7 +22,7 @@ public class LoginDataModel {
       
       boolean userExist = false;
       try{
-        String sql = "SELECT usuario, password FROM usuarios WHERE usuario = '" + user + "'";
+        String sql = "SELECT id, usuario, password FROM usuarios WHERE usuario = '" + user + "'";
         Connection connection = DriverManager.getConnection( DataConnection.stringDB, 
                 DataConnection.user,DataConnection.pass );
 
@@ -31,12 +31,13 @@ public class LoginDataModel {
 
         if( resultSet.next() )
         {
-          String userDB = resultSet.getString( 1 );
-          String passDB = resultSet.getString( 2 );
-          
-          if(password.equals(passDB)){
-              userExist = true;
-          }
+            DataConnection.userId = resultSet.getInt(1 );
+            String userDB = resultSet.getString( 2 );
+            String passDB = resultSet.getString( 3 );
+
+            if(password.equals(passDB)){
+                userExist = true;
+            }
         }
           
         connection.close();

@@ -2,19 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Creacion;
+package Entidades;
 
 /**
  *
  * @author mauri
  */
-public class Categoria {
+public class Capacidad {
     private int id;
-    private String descripcion;
+    private Integer capacidad;
 
-    public Categoria(int id, String descripcion) {
+    public Capacidad(int id, int capacidad) {
         this.id = id;
-        this.descripcion = descripcion;
+        this.capacidad = capacidad;
     }
 
     public int getId() {
@@ -25,11 +25,13 @@ public class Categoria {
         this.id = id;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public Integer getCapacidad() {
+        return capacidad;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }    
+    public void setCapacidad(int capacidad) {
+        this.capacidad = capacidad;
+    }
+    
+    
 }

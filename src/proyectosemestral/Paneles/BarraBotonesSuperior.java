@@ -9,7 +9,7 @@ package proyectosemestral.Paneles;
  * @author lr56c
  */
 public class BarraBotonesSuperior extends javax.swing.JPanel {
-
+    
     /**
      * Creates new form BarraBotonesSuperior
      */
@@ -28,10 +28,11 @@ public class BarraBotonesSuperior extends javax.swing.JPanel {
 
         ImageSection = new javax.swing.JPanel();
         BotonesSection = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        jButtonProductos = new javax.swing.JButton();
+        jButtonFavoritos = new javax.swing.JButton();
+        jButtonComparar = new javax.swing.JButton();
+        jButtonCrear = new javax.swing.JButton();
+        jButtonListaProductos = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
 
@@ -45,68 +46,58 @@ public class BarraBotonesSuperior extends javax.swing.JPanel {
         );
         ImageSectionLayout.setVerticalGroup(
             ImageSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 201, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         BotonesSection.setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setBackground(new java.awt.Color(31, 106, 178));
-        jButton1.setText("Productos");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        jButtonProductos.setBackground(new java.awt.Color(31, 106, 178));
+        jButtonProductos.setText("Productos");
 
-        jButton2.setBackground(new java.awt.Color(31, 106, 178));
-        jButton2.setText("Favoritos");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
+        jButtonFavoritos.setBackground(new java.awt.Color(31, 106, 178));
+        jButtonFavoritos.setText("Favoritos");
 
-        jButton3.setBackground(new java.awt.Color(31, 106, 178));
-        jButton3.setText("Comparar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
+        jButtonComparar.setBackground(new java.awt.Color(31, 106, 178));
+        jButtonComparar.setText("Comparar");
 
-        jButton4.setBackground(new java.awt.Color(31, 106, 178));
-        jButton4.setText("Crear");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
+        jButtonCrear.setBackground(new java.awt.Color(31, 106, 178));
+        jButtonCrear.setText("Crear");
+
+        jButtonListaProductos.setBackground(new java.awt.Color(31, 106, 178));
+        jButtonListaProductos.setText("Productos");
 
         javax.swing.GroupLayout BotonesSectionLayout = new javax.swing.GroupLayout(BotonesSection);
         BotonesSection.setLayout(BotonesSectionLayout);
         BotonesSectionLayout.setHorizontalGroup(
             BotonesSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotonesSectionLayout.createSequentialGroup()
-                .addContainerGap(255, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(53, 53, 53)
-                .addComponent(jButton2)
-                .addGap(47, 47, 47)
-                .addComponent(jButton3)
-                .addGap(33, 33, 33)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(255, 255, 255))
+            .addGroup(BotonesSectionLayout.createSequentialGroup()
+                .addContainerGap(297, Short.MAX_VALUE)
+                .addGroup(BotonesSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotonesSectionLayout.createSequentialGroup()
+                        .addComponent(jButtonProductos)
+                        .addGap(53, 53, 53)
+                        .addComponent(jButtonFavoritos)
+                        .addGap(47, 47, 47)
+                        .addComponent(jButtonComparar)
+                        .addGap(33, 33, 33)
+                        .addComponent(jButtonCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(255, 255, 255))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BotonesSectionLayout.createSequentialGroup()
+                        .addComponent(jButtonListaProductos)
+                        .addGap(656, 656, 656))))
         );
         BotonesSectionLayout.setVerticalGroup(
             BotonesSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BotonesSectionLayout.createSequentialGroup()
                 .addGap(85, 85, 85)
                 .addGroup(BotonesSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
-                .addContainerGap(85, Short.MAX_VALUE))
+                    .addComponent(jButtonProductos)
+                    .addComponent(jButtonFavoritos)
+                    .addComponent(jButtonComparar)
+                    .addComponent(jButtonCrear))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonListaProductos)
+                .addContainerGap(73, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -120,34 +111,22 @@ public class BarraBotonesSuperior extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(ImageSection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(BotonesSection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(ImageSection, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BotonesSection, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(1, 1, 1))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel BotonesSection;
-    private javax.swing.JPanel ImageSection;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    public javax.swing.JPanel ImageSection;
+    public javax.swing.JButton jButtonComparar;
+    public javax.swing.JButton jButtonCrear;
+    public javax.swing.JButton jButtonFavoritos;
+    public javax.swing.JButton jButtonListaProductos;
+    public javax.swing.JButton jButtonProductos;
     // End of variables declaration//GEN-END:variables
 }

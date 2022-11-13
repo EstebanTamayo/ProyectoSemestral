@@ -57,23 +57,16 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="barraBotonesSuperior1" pref="1280" max="32767" attributes="0"/>
+                          <Component id="barraBotonesSuperior1" max="32767" attributes="0"/>
                           <Component id="BannerSimple" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="168" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="99" max="-2" attributes="0"/>
-                              <Component id="tarjetaProducto1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="tarjetaProducto2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="tarjetaProducto3" min="-2" max="-2" attributes="0"/>
-                          </Group>
                           <Group type="102" attributes="0">
-                              <EmptySpace min="835" pref="835" max="-2" attributes="0"/>
+                              <Component id="jScrollPane2" min="-2" pref="1280" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="tarjetaProducto4" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
@@ -91,18 +84,18 @@
                       <Component id="barraBotonesSuperior1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="BannerSimple" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="tarjetaProducto1" min="-2" max="-2" attributes="0"/>
-                          <Component id="tarjetaProducto2" min="-2" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Component id="tarjetaProducto3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="374" max="-2" attributes="0"/>
                               <Component id="tarjetaProducto4" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="tarjetaProducto5" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                              <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="tarjetaProducto5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="766" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -136,7 +129,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="42" max="32767" attributes="0"/>
+                          <EmptySpace pref="41" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -152,16 +145,34 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="proyectosemestral.Paneles.TarjetaProducto" name="tarjetaProducto1">
-            </Component>
-            <Component class="proyectosemestral.Paneles.TarjetaProducto" name="tarjetaProducto2">
-            </Component>
-            <Component class="proyectosemestral.Paneles.TarjetaProducto" name="tarjetaProducto3">
-            </Component>
             <Component class="proyectosemestral.Paneles.TarjetaProducto" name="tarjetaProducto4">
             </Component>
             <Component class="proyectosemestral.Paneles.TarjetaProducto" name="tarjetaProducto5">
             </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTable" name="jTable1">
+                  <Properties>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+                      <Table columnCount="4" rowCount="4">
+                        <Column editable="true" title="Title 1" type="java.lang.Object"/>
+                        <Column editable="true" title="Title 2" type="java.lang.Object"/>
+                        <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                        <Column editable="true" title="Title 4" type="java.lang.Object"/>
+                      </Table>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTable1MousePressed"/>
+                  </Events>
+                </Component>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
       </SubComponents>

@@ -29,8 +29,8 @@ public class BannerInfo extends javax.swing.JPanel {
         TitleSection = new javax.swing.JPanel();
         jTitleLabel = new javax.swing.JLabel();
         InfoSection = new javax.swing.JPanel();
-        infoPanel3 = new proyectosemestral.Paneles.InfoPanel();
-        infoPanel4 = new proyectosemestral.Paneles.InfoPanel();
+        infoPanelCount = new proyectosemestral.Paneles.InfoPanel();
+        infoPanelInstalacion = new proyectosemestral.Paneles.InfoPanel();
 
         setBackground(new java.awt.Color(31, 106, 178));
         setPreferredSize(new java.awt.Dimension(1280, 300));
@@ -62,21 +62,21 @@ public class BannerInfo extends javax.swing.JPanel {
         InfoSection.setLayout(InfoSectionLayout);
         InfoSectionLayout.setHorizontalGroup(
             InfoSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InfoSectionLayout.createSequentialGroup()
-                .addGap(426, 426, 426)
-                .addComponent(infoPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoSectionLayout.createSequentialGroup()
+                .addContainerGap(460, Short.MAX_VALUE)
+                .addComponent(infoPanelCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(infoPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(426, Short.MAX_VALUE))
+                .addComponent(infoPanelInstalacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(446, 446, 446))
         );
         InfoSectionLayout.setVerticalGroup(
             InfoSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(InfoSectionLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(15, 15, 15)
                 .addGroup(InfoSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(infoPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(infoPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                    .addComponent(infoPanelInstalacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(infoPanelCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -99,9 +99,9 @@ public class BannerInfo extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel InfoSection;
-    private javax.swing.JPanel TitleSection;
-    public proyectosemestral.Paneles.InfoPanel infoPanel3;
-    public proyectosemestral.Paneles.InfoPanel infoPanel4;
+    public javax.swing.JPanel TitleSection;
+    public proyectosemestral.Paneles.InfoPanel infoPanelCount;
+    public proyectosemestral.Paneles.InfoPanel infoPanelInstalacion;
     public javax.swing.JLabel jTitleLabel;
     // End of variables declaration//GEN-END:variables
 }

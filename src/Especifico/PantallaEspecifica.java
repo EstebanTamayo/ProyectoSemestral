@@ -4,7 +4,12 @@
  */
 package Especifico;
 
+import Comparar.PantallaComparar;
+import Entidades.Ventilador;
+import Favoritos.PantallaFavoritos;
+import Listado.PantallaLista;
 import com.formdev.flatlaf.FlatLightLaf;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
 /**
@@ -13,13 +18,53 @@ import javax.swing.UIManager;
  */
 public class PantallaEspecifica extends javax.swing.JFrame {
 
+    private ItemDisplayController itemDisplayController;
+    private Ventilador ventilador = null;
+    private int index;
     /**
      * Creates new form PantallaEspecifica
      */
     public PantallaEspecifica() {
+        itemDisplayController = new ItemDisplayController(this);
         initComponents();
     }
 
+    private void Inicializacion(){
+        
+        ventilador = itemDisplayController.getVentilador(index);
+        
+        if(ventilador == null){
+            JOptionPane.showMessageDialog(this, "Producto no encontrado", "Error", 0);
+            return;
+        }
+        jLabelCodigo.setText("Codigo: " + ventilador.getCodigo());
+        jLabelCategoria.setText("Categoria: " + ventilador.getCategoria());
+        jLabelCapacidad.setText("Capacidad: " + ventilador.getCapacidad());
+        jLabelTipo.setText("Tipo equipo: " + ventilador.getTipoEquipo());
+        jLabelEspacio.setText("Espacio metros cuadrados: " + ventilador.getEspacioMaximo());
+        jLabelMarca.setText("Marca: " + ventilador.getMarca());
+        jLabelModelo.setText("Modelo: " + ventilador.getModelo());
+        jLabelRemoto.setText("Control remoto: " + (ventilador.isControlRemoto() ? "Tiene" : "No tiene"));
+        jLabelInstalacion.setText("Instalacion: " + (ventilador.isInstalacion() ? "Tiene" : "No tiene"));
+        jLabelPrecio.setText("Precio: " + ventilador.getPrecio());
+        jLabelAncho.setText("Ancho: " + ventilador.getAncho());
+        jLabelAlto.setText("Alto: " + ventilador.getAlto());
+        jLabelDescripcion.setText("Descripcion: " + ventilador.getDescripcion());
+        jLabelRefrigerante.setText("Refrigerante: " + ventilador.getRefrigerante());
+        
+        boolean fav = itemDisplayController.getFavorite(index);
+        jButtonFavoritos.setText(fav ? "Eliminar Favoritos" : "Agregar Favoritos");
+    }
+    
+    public int getIndex() {
+        return index;
+    }
+
+    public void setIndex(int index) {
+        this.index = index;
+        Inicializacion();
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,26 +80,25 @@ public class PantallaEspecifica extends javax.swing.JFrame {
         ImageSection = new javax.swing.JPanel();
         LineaPanel = new javax.swing.JPanel();
         DescripcionSection = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        jLabelTipo = new javax.swing.JLabel();
+        jLabelPrecio = new javax.swing.JLabel();
+        jLabelDescripcion = new javax.swing.JLabel();
+        jLabelInstalacion = new javax.swing.JLabel();
+        jLabelCodigo = new javax.swing.JLabel();
+        jLabelCategoria = new javax.swing.JLabel();
+        jLabelMarca = new javax.swing.JLabel();
+        jLabelModelo = new javax.swing.JLabel();
+        jLabelRefrigerante = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButtonComparar = new javax.swing.JButton();
+        jButtonFavoritos = new javax.swing.JButton();
         EspecificationSection = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
+        jLabelEspecificaciones = new javax.swing.JLabel();
+        jLabelCapacidad = new javax.swing.JLabel();
+        jLabelEspacio = new javax.swing.JLabel();
+        jLabelRemoto = new javax.swing.JLabel();
+        jLabelAncho = new javax.swing.JLabel();
+        jLabelAlto = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -96,32 +140,32 @@ public class PantallaEspecifica extends javax.swing.JFrame {
         DescripcionSection.setBackground(new java.awt.Color(255, 255, 255));
         DescripcionSection.setPreferredSize(new java.awt.Dimension(400, 400));
 
-        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel1.setText("Tipo");
+        jLabelTipo.setForeground(new java.awt.Color(51, 51, 51));
+        jLabelTipo.setText("Tipo");
 
-        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel2.setText("Precio");
+        jLabelPrecio.setForeground(new java.awt.Color(51, 51, 51));
+        jLabelPrecio.setText("Precio");
 
-        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel3.setText("Descripcion");
+        jLabelDescripcion.setForeground(new java.awt.Color(51, 51, 51));
+        jLabelDescripcion.setText("Descripcion");
 
-        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel4.setText("Tipo Instalacion");
+        jLabelInstalacion.setForeground(new java.awt.Color(51, 51, 51));
+        jLabelInstalacion.setText("Tipo Instalacion");
 
-        jLabel5.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel5.setText("Codigo");
+        jLabelCodigo.setForeground(new java.awt.Color(51, 51, 51));
+        jLabelCodigo.setText("Codigo");
 
-        jLabel6.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel6.setText("Categoria");
+        jLabelCategoria.setForeground(new java.awt.Color(51, 51, 51));
+        jLabelCategoria.setText("Categoria");
 
-        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel7.setText("Marca");
+        jLabelMarca.setForeground(new java.awt.Color(51, 51, 51));
+        jLabelMarca.setText("Marca");
 
-        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel8.setText("Modelo");
+        jLabelModelo.setForeground(new java.awt.Color(51, 51, 51));
+        jLabelModelo.setText("Modelo");
 
-        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel9.setText("Refrigerante");
+        jLabelRefrigerante.setForeground(new java.awt.Color(51, 51, 51));
+        jLabelRefrigerante.setText("Refrigerante");
 
         javax.swing.GroupLayout DescripcionSectionLayout = new javax.swing.GroupLayout(DescripcionSection);
         DescripcionSection.setLayout(DescripcionSectionLayout);
@@ -130,50 +174,60 @@ public class PantallaEspecifica extends javax.swing.JFrame {
             .addGroup(DescripcionSectionLayout.createSequentialGroup()
                 .addGap(84, 84, 84)
                 .addGroup(DescripcionSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9))
+                    .addComponent(jLabelTipo)
+                    .addComponent(jLabelPrecio)
+                    .addComponent(jLabelDescripcion)
+                    .addComponent(jLabelInstalacion)
+                    .addComponent(jLabelCodigo)
+                    .addComponent(jLabelCategoria)
+                    .addComponent(jLabelMarca)
+                    .addComponent(jLabelModelo)
+                    .addComponent(jLabelRefrigerante))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         DescripcionSectionLayout.setVerticalGroup(
             DescripcionSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DescripcionSectionLayout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(jLabel1)
+                .addComponent(jLabelTipo)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel2)
+                .addComponent(jLabelPrecio)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                .addComponent(jLabel4)
+                .addComponent(jLabelDescripcion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addComponent(jLabelInstalacion)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel5)
+                .addComponent(jLabelCodigo)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel6)
+                .addComponent(jLabelCategoria)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel7)
+                .addComponent(jLabelMarca)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel8)
+                .addComponent(jLabelModelo)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel9)
+                .addComponent(jLabelRefrigerante)
                 .addGap(37, 37, 37))
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setPreferredSize(new java.awt.Dimension(400, 157));
 
-        jButton1.setBackground(new java.awt.Color(31, 106, 178));
-        jButton1.setText("Comparar");
-        jButton1.setToolTipText("");
+        jButtonComparar.setBackground(new java.awt.Color(31, 106, 178));
+        jButtonComparar.setText("Comparar");
+        jButtonComparar.setToolTipText("");
+        jButtonComparar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCompararActionPerformed(evt);
+            }
+        });
 
-        jButton2.setBackground(new java.awt.Color(31, 106, 178));
-        jButton2.setText("Agregar Favoritos");
+        jButtonFavoritos.setBackground(new java.awt.Color(31, 106, 178));
+        jButtonFavoritos.setText("Agregar Favoritos");
+        jButtonFavoritos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonFavoritosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -181,9 +235,9 @@ public class PantallaEspecifica extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(jButtonComparar, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addComponent(jButtonFavoritos)
                 .addGap(29, 29, 29))
         );
         jPanel2Layout.setVerticalGroup(
@@ -191,34 +245,31 @@ public class PantallaEspecifica extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButtonComparar)
+                    .addComponent(jButtonFavoritos))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         EspecificationSection.setBackground(new java.awt.Color(255, 255, 255));
         EspecificationSection.setPreferredSize(new java.awt.Dimension(400, 157));
 
-        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel10.setText("Especificaciones");
+        jLabelEspecificaciones.setForeground(new java.awt.Color(51, 51, 51));
+        jLabelEspecificaciones.setText("Especificaciones");
 
-        jLabel11.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel11.setText("Capacidad");
+        jLabelCapacidad.setForeground(new java.awt.Color(51, 51, 51));
+        jLabelCapacidad.setText("Capacidad");
 
-        jLabel12.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel12.setText("Espacio");
+        jLabelEspacio.setForeground(new java.awt.Color(51, 51, 51));
+        jLabelEspacio.setText("Espacio");
 
-        jLabel13.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel13.setText("Control Remoto");
+        jLabelRemoto.setForeground(new java.awt.Color(51, 51, 51));
+        jLabelRemoto.setText("Control Remoto");
 
-        jLabel14.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel14.setText("Control Remoto");
+        jLabelAncho.setForeground(new java.awt.Color(51, 51, 51));
+        jLabelAncho.setText("Ancho");
 
-        jLabel15.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel15.setText("Ancho");
-
-        jLabel16.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel16.setText("Alto");
+        jLabelAlto.setForeground(new java.awt.Color(51, 51, 51));
+        jLabelAlto.setText("Alto");
 
         javax.swing.GroupLayout EspecificationSectionLayout = new javax.swing.GroupLayout(EspecificationSection);
         EspecificationSection.setLayout(EspecificationSectionLayout);
@@ -227,32 +278,29 @@ public class PantallaEspecifica extends javax.swing.JFrame {
             .addGroup(EspecificationSectionLayout.createSequentialGroup()
                 .addGap(79, 79, 79)
                 .addGroup(EspecificationSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel16))
+                    .addComponent(jLabelEspecificaciones)
+                    .addComponent(jLabelCapacidad)
+                    .addComponent(jLabelEspacio)
+                    .addComponent(jLabelRemoto)
+                    .addComponent(jLabelAncho)
+                    .addComponent(jLabelAlto))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         EspecificationSectionLayout.setVerticalGroup(
             EspecificationSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(EspecificationSectionLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addComponent(jLabel10)
+                .addComponent(jLabelEspecificaciones)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel11)
+                .addComponent(jLabelCapacidad)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel12)
+                .addComponent(jLabelEspacio)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel14)
+                .addComponent(jLabelRemoto)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel15)
+                .addComponent(jLabelAncho)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel16)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel13)
+                .addComponent(jLabelAlto)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -266,12 +314,11 @@ public class PantallaEspecifica extends javax.swing.JFrame {
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(EspecificationSection, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(ImageSection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(DescripcionSection, javax.swing.GroupLayout.DEFAULT_SIZE, 871, Short.MAX_VALUE))
-                        .addComponent(barraBotonesSuperior1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(ImageSection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(DescripcionSection, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE))
+                    .addComponent(barraBotonesSuperior1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LineaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 1387, Short.MAX_VALUE))
         );
@@ -287,7 +334,7 @@ public class PantallaEspecifica extends javax.swing.JFrame {
                 .addComponent(LineaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(EspecificationSection, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
+                    .addComponent(EspecificationSection, javax.swing.GroupLayout.PREFERRED_SIZE, 217, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)))
         );
 
@@ -306,6 +353,21 @@ public class PantallaEspecifica extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonCompararActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCompararActionPerformed
+        if(!itemDisplayController.addComparacion(index)){
+            JOptionPane.showMessageDialog(this, "Error al agregar comparacion. Intente denuevo", "Error", 0);
+            return;
+        }
+        
+        itemDisplayController.GoComparar();
+    }//GEN-LAST:event_jButtonCompararActionPerformed
+
+    private void jButtonFavoritosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFavoritosActionPerformed
+        boolean fav = itemDisplayController.getFavorite(index);
+        jButtonFavoritos.setText(fav ? "Eliminar Favoritos" : "Agregar Favoritos");
+        itemDisplayController.addFavorito(index, !fav );
+    }//GEN-LAST:event_jButtonFavoritosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -332,24 +394,23 @@ public class PantallaEspecifica extends javax.swing.JFrame {
     private javax.swing.JPanel ImageSection;
     private javax.swing.JPanel LineaPanel;
     private proyectosemestral.Paneles.BarraBotonesSuperior barraBotonesSuperior1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
+    public javax.swing.JButton jButtonComparar;
+    public javax.swing.JButton jButtonFavoritos;
+    public javax.swing.JLabel jLabelAlto;
+    public javax.swing.JLabel jLabelAncho;
+    public javax.swing.JLabel jLabelCapacidad;
+    public javax.swing.JLabel jLabelCategoria;
+    public javax.swing.JLabel jLabelCodigo;
+    public javax.swing.JLabel jLabelDescripcion;
+    public javax.swing.JLabel jLabelEspacio;
+    private javax.swing.JLabel jLabelEspecificaciones;
+    public javax.swing.JLabel jLabelInstalacion;
+    public javax.swing.JLabel jLabelMarca;
+    public javax.swing.JLabel jLabelModelo;
+    public javax.swing.JLabel jLabelPrecio;
+    public javax.swing.JLabel jLabelRefrigerante;
+    public javax.swing.JLabel jLabelRemoto;
+    public javax.swing.JLabel jLabelTipo;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

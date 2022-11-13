@@ -4,6 +4,12 @@
  */
 package Creacion;
 
+import Entidades.Ventilador;
+import Entidades.TipoEquipo;
+import Entidades.Categoria;
+import Entidades.Capacidad;
+import Entidades.Refrigerante;
+import Inicio.PantallaInicio;
 import java.util.ArrayList;
 
 /**
@@ -16,9 +22,7 @@ public class CreationController {
     CreationDataModel creationDataModel = new CreationDataModel();
     
     CreationController(PantallaCreacion view) {
-        ArrayList<Categoria> a = new ArrayList<>();
         this.pantallaCreacion = view;
-        
     }
     
     public ArrayList<Categoria> getCategorias(){
@@ -39,5 +43,11 @@ public class CreationController {
     
     public boolean addVentilador(Ventilador ventilador){
         return creationDataModel.addVentilador(ventilador);
+    }
+
+    void BackButton() {
+         PantallaInicio p = new PantallaInicio();
+        p.setVisible(true);
+        pantallaCreacion.dispose();
     }
 }

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Creacion;
+package Entidades;
 
 /**
  *
@@ -13,18 +13,21 @@ public class Ventilador {
     private String categoria;
     private Integer capacidad;
     private String tipoEquipo;
-    private Double espacioMaximo;
+    private Integer espacioMaximo;
     private String marca;
     private String modelo;
     private boolean controlRemoto;
     private boolean instalacion;
     private Integer precio;
-    private Double ancho;
-    private Double alto;
+    private Integer ancho;
+    private Integer alto;
     private String descripcion;
     private String refrigerante;
 
-    public Ventilador(String codigo, String categoria, Integer capacidad, String tipoEquipo, Double espacioMaximo, String marca, String modelo, boolean controlRemoto, boolean instalacion, Integer precio, Double ancho, Double alto, String descripcion, String refrigerante) {
+    public Ventilador() {
+    }
+    
+    public Ventilador(String codigo, String categoria, Integer capacidad, String tipoEquipo, Integer espacioMaximo, String marca, String modelo, boolean controlRemoto, boolean instalacion, Integer precio, Integer ancho, Integer alto, String descripcion, String refrigerante) {
         this.codigo = codigo;
         this.categoria = categoria;
         this.capacidad = capacidad;
@@ -73,11 +76,11 @@ public class Ventilador {
         this.tipoEquipo = tipoEquipo;
     }
 
-    public Double getEspacioMaximo() {
+    public Integer getEspacioMaximo() {
         return espacioMaximo;
     }
 
-    public void setEspacioMaximo(Double espacioMaximo) {
+    public void setEspacioMaximo(Integer espacioMaximo) {
         this.espacioMaximo = espacioMaximo;
     }
 
@@ -121,19 +124,19 @@ public class Ventilador {
         this.precio = precio;
     }
 
-    public Double getAncho() {
+    public Integer getAncho() {
         return ancho;
     }
 
-    public void setAncho(Double ancho) {
+    public void setAncho(Integer ancho) {
         this.ancho = ancho;
     }
 
-    public Double getAlto() {
+    public Integer getAlto() {
         return alto;
     }
 
-    public void setAlto(Double alto) {
+    public void setAlto(Integer alto) {
         this.alto = alto;
     }
 

@@ -10,6 +10,7 @@ import com.formdev.flatlaf.FlatLightLaf;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.NumberFormat;
@@ -42,6 +43,8 @@ public class TestD extends javax.swing.JFrame
     data.add( new String[]{ "51", "Ignacio" } );
     DefaultTableModel model  = new DefaultTableModel( data.stream().toArray(String[][]::new), colums );
     jTable1.setModel( model );
+    conexionTest();
+    //insertTest();
   }
   /**
    * This method is called from within the constructor to initialize the form.
@@ -115,45 +118,74 @@ public class TestD extends javax.swing.JFrame
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        System.out.println("click");
+    private void insertTest(){
+        try{
+         String sql = "INSERT INTO dd(f,d,b,bb) VALUES(?, ?, ?, ?)";
+            Connection connection = DriverManager.getConnection( stringDB, user,
+            pass );
+
+            PreparedStatement statement = connection.prepareStatement( sql );
+            
+            statement.setFloat(1, 50.2f);
+            statement.setDouble(2, 4.3);
+            statement.setBoolean(3, true);
+            statement.setBoolean(4, false);
+            statement.executeUpdate();
+        }
+          catch ( Exception ex )
+        {
+          ex.printStackTrace();
+        }
+    }
+    
+    private void conexionTest(){
         try
-    {
-      String sql = "SELECT * FROM tab";
-      Connection connection = DriverManager.getConnection( stringDB, user,
-        pass );
+        {
+          String sql = "SELECT * FROM dd";
+          Connection connection = DriverManager.getConnection( stringDB, user,
+            pass );
 
-      Statement statement = connection.prepareStatement( sql );
-      ResultSet resultSet = statement.executeQuery( sql );
+          Statement statement = connection.prepareStatement( sql );
+          ResultSet resultSet = statement.executeQuery( sql );
 
-      //String text = label.getText();
-      // if(text.length > 0)
-      // else System.out.println("Choose id again");
+          //String text = label.getText();
+          // if(text.length > 0)
+          // else System.out.println("Choose id again");
 
-      ArrayList<String[]> lista = new ArrayList<>();
+          ArrayList<String[]> lista = new ArrayList<>();
 
-      while ( resultSet.next() )
-      {
-        String campo1 = resultSet.getString( 1 );
-        String campo2 = resultSet.getString( 2 );
-        lista.add( new String[] { campo1, campo2 } );
-          System.out.println(campo2);
-      }
-      
-      connection.close();
-      
-      String[][] newData = lista.stream().toArray(String[][]::new);
-      DefaultTableModel model = new DefaultTableModel(newData, colums );
-      jTable1.setModel( model );
-      //else{
-      //System.out.println("No data found");
-      //}
+          while ( resultSet.next() )
+          {
+            float campo1 = resultSet.getFloat(2 );
+            double campo2 = resultSet.getDouble(3 );
+            boolean campo3 = resultSet.getBoolean(4 );
+            boolean campo4 = resultSet.getBoolean(5 );
+            //lista.add( new String[] { campo1, campo2 } );
+            System.out.println(campo1);
+            System.out.println(campo2);
+            System.out.println(campo3);
+            System.out.println(campo4);            
+          }
+
+          connection.close();
+//          String[][] newData = lista.stream().toArray(String[][]::new);
+//          DefaultTableModel model = new DefaultTableModel(newData, colums );
+//          jTable1.setModel( model );
+        }
+        catch ( Exception ex )
+        {
+            ex.printStackTrace();
+          System.err.println( "Failed connection database" );
+        }
     }
-    catch ( Exception ex )
-    {
-        ex.printStackTrace();
-      System.err.println( "Failed connection database" );
-    }
+    
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+        System.out.println("click");
+      
+        //else{
+        //System.out.println("No data found");
+        //}
     }//GEN-LAST:event_jButton1ActionPerformed
 
   /**
