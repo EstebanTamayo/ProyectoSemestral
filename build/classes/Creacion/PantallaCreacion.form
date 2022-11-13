@@ -3,6 +3,9 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[1280, 720]"/>
+    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -23,12 +26,17 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
+          <Component id="jScrollPane1" max="32767" attributes="0"/>
+          <Component id="barraPanelCreacion1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jScrollPane1" alignment="0" pref="720" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <Component id="barraPanelCreacion1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" pref="613" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -38,7 +46,7 @@
         <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
         <Property name="verticalScrollBarPolicy" type="int" value="22"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[1280, 1800]"/>
+          <Dimension value="[1280, 720]"/>
         </Property>
       </Properties>
 
@@ -49,108 +57,106 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[1280, 1500]"/>
+            </Property>
           </Properties>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="barraPanelCreacion1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
                       <EmptySpace min="440" pref="440" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="itemCreacionText1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="itemCreacionText2" min="-2" max="-2" attributes="0"/>
-                          <Component id="itemCreacionText3" min="-2" max="-2" attributes="0"/>
-                          <Component id="itemCreacionDropdown1" min="-2" max="-2" attributes="0"/>
-                          <Component id="itemCreacionDropdown2" min="-2" max="-2" attributes="0"/>
-                          <Component id="itemCreacionDropdown3" min="-2" max="-2" attributes="0"/>
-                          <Component id="itemCreacionDropdown4" min="-2" max="-2" attributes="0"/>
-                          <Component id="itemCreacionText4" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="itemCreacionCheckBox1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="itemCreacionCheckBox2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="itemCreacionText5" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="itemCreacionText6" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="itemCreacionText7" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="itemCreacionTextArea1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jMarcaEquipoField" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCodigoEquipoField" min="-2" max="-2" attributes="0"/>
+                          <Component id="jModeloEquipoField" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCategoriaEquipoField" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTipoEquipoField" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCapacidadField" min="-2" max="-2" attributes="0"/>
+                          <Component id="jRefrigeranteField" min="-2" max="-2" attributes="0"/>
+                          <Component id="jEspacioMaximoField" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jControlRemotoField" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jInstalacionField" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPrecioField" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jAnchoField" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jAltoField" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jDescripcionField" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="448" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="barraPanelCreacion1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                      <Component id="jCodigoEquipoField" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="jMarcaEquipoField" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="itemCreacionText1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jModeloEquipoField" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="itemCreacionText2" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCategoriaEquipoField" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="itemCreacionText3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTipoEquipoField" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="itemCreacionDropdown1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jCapacidadField" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="itemCreacionDropdown2" min="-2" max="-2" attributes="0"/>
+                      <Component id="jRefrigeranteField" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="itemCreacionDropdown3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jEspacioMaximoField" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="itemCreacionDropdown4" min="-2" max="-2" attributes="0"/>
+                      <Component id="jControlRemotoField" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="itemCreacionText4" min="-2" max="-2" attributes="0"/>
+                      <Component id="jInstalacionField" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="itemCreacionCheckBox1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jPrecioField" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="itemCreacionCheckBox2" min="-2" max="-2" attributes="0"/>
+                      <Component id="jAnchoField" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="itemCreacionText5" min="-2" max="-2" attributes="0"/>
+                      <Component id="jAltoField" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="itemCreacionText6" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="itemCreacionText7" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="itemCreacionTextArea1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="1074" max="32767" attributes="0"/>
+                      <Component id="jDescripcionField" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="proyectosemestral.Paneles.BarraPanelCreacion" name="barraPanelCreacion1">
+            <Component class="proyectosemestral.Paneles.ItemCreacionText" name="jMarcaEquipoField">
             </Component>
-            <Component class="proyectosemestral.Paneles.ItemCreacionText" name="itemCreacionText1">
+            <Component class="proyectosemestral.Paneles.ItemCreacionText" name="jModeloEquipoField">
             </Component>
-            <Component class="proyectosemestral.Paneles.ItemCreacionText" name="itemCreacionText2">
+            <Component class="proyectosemestral.Paneles.ItemCreacionDropdown" name="jCategoriaEquipoField">
             </Component>
-            <Component class="proyectosemestral.Paneles.ItemCreacionText" name="itemCreacionText3">
+            <Component class="proyectosemestral.Paneles.ItemCreacionDropdown" name="jTipoEquipoField">
             </Component>
-            <Component class="proyectosemestral.Paneles.ItemCreacionDropdown" name="itemCreacionDropdown1">
+            <Component class="proyectosemestral.Paneles.ItemCreacionDropdown" name="jCapacidadField">
             </Component>
-            <Component class="proyectosemestral.Paneles.ItemCreacionDropdown" name="itemCreacionDropdown2">
+            <Component class="proyectosemestral.Paneles.ItemCreacionDropdown" name="jRefrigeranteField">
             </Component>
-            <Component class="proyectosemestral.Paneles.ItemCreacionDropdown" name="itemCreacionDropdown3">
+            <Component class="proyectosemestral.Paneles.ItemCreacionText" name="jEspacioMaximoField">
             </Component>
-            <Component class="proyectosemestral.Paneles.ItemCreacionDropdown" name="itemCreacionDropdown4">
+            <Component class="proyectosemestral.Paneles.ItemCreacionCheckBox" name="jControlRemotoField">
             </Component>
-            <Component class="proyectosemestral.Paneles.ItemCreacionText" name="itemCreacionText4">
+            <Component class="proyectosemestral.Paneles.ItemCreacionCheckBox" name="jInstalacionField">
             </Component>
-            <Component class="proyectosemestral.Paneles.ItemCreacionCheckBox" name="itemCreacionCheckBox1">
+            <Component class="proyectosemestral.Paneles.ItemCreacionText" name="jPrecioField">
             </Component>
-            <Component class="proyectosemestral.Paneles.ItemCreacionCheckBox" name="itemCreacionCheckBox2">
+            <Component class="proyectosemestral.Paneles.ItemCreacionText" name="jAnchoField">
             </Component>
-            <Component class="proyectosemestral.Paneles.ItemCreacionText" name="itemCreacionText5">
+            <Component class="proyectosemestral.Paneles.ItemCreacionText" name="jAltoField">
             </Component>
-            <Component class="proyectosemestral.Paneles.ItemCreacionText" name="itemCreacionText6">
+            <Component class="proyectosemestral.Paneles.ItemCreacionTextArea" name="jDescripcionField">
             </Component>
-            <Component class="proyectosemestral.Paneles.ItemCreacionText" name="itemCreacionText7">
-            </Component>
-            <Component class="proyectosemestral.Paneles.ItemCreacionTextArea" name="itemCreacionTextArea1">
+            <Component class="proyectosemestral.Paneles.ItemCreacionText" name="jCodigoEquipoField">
             </Component>
           </SubComponents>
         </Container>
       </SubComponents>
     </Container>
+    <Component class="proyectosemestral.Paneles.BarraPanelCreacion" name="barraPanelCreacion1">
+    </Component>
   </SubComponents>
 </Form>

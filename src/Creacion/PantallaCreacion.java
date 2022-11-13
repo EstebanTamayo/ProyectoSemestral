@@ -5,6 +5,15 @@
 package Creacion;
 
 import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.Component;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import javax.swing.JList;
+import javax.swing.ListCellRenderer;
 import javax.swing.UIManager;
 
 /**
@@ -13,13 +22,432 @@ import javax.swing.UIManager;
  */
 public class PantallaCreacion extends javax.swing.JFrame {
 
+    private CreationController creationController;
+    
+    private boolean firstCodigoEquipo = true;
+    private boolean firstMarcaEquipo = true;
+    private boolean firstModeloEquipo = true;
+    private boolean firstEspacioMaximo = true;
+    private boolean firstPrecio = true;
+    private boolean firstAncho = true;
+    private boolean firstAlto = true;
+    private boolean firstDescripcion = true;
+    
+    private boolean codigoEquipoOK = false;
+    private boolean marcaEquipoOK = false;
+    private boolean modeloEquipoOK = false;
+    private boolean espacioMaximoOK = false;
+    private boolean precioOK = false;
+    private boolean anchoOK = false;
+    private boolean altoOK = false;
+    private boolean descripcionOK = false;
+    
+    private boolean categoriaEquipoOK = false;
+    private boolean tipoEquipoOK = false;
+    private boolean capacidadOK = false;
+    private boolean refrigeranteOK = false;
+  
     /**
      * Creates new form PantallaCreacion
      */
     public PantallaCreacion() {
+        
+        creationController = new CreationController(this);
+        
         initComponents();
+                
+        jScrollPane1.getVerticalScrollBar().setUnitIncrement(16);
+        barraPanelCreacion1.jContinueButton.setEnabled(false);
+        
+        jCodigoEquipoField.jTitleLabel.setText("Codigo del equipo");
+        jCodigoEquipoField.jTextField.setText("escribe el codigo del equipo");
+        jCodigoEquipoField.jTextField.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if(firstCodigoEquipo){
+                    jCodigoEquipoField.jTextField.setCaretPosition(jCodigoEquipoField.jTextField.getDocument().getLength());
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if( jCodigoEquipoField.jTextField.getText().length() == 0){
+                     jCodigoEquipoField.jTextField.setText("escribe el codigo del equipo");
+                }
+            }
+        });
+        jCodigoEquipoField.jTextField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if(firstCodigoEquipo){
+                    jCodigoEquipoField.jTextField.setText("");
+                    firstCodigoEquipo = false;
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                codigoEquipoOK = jCodigoEquipoField.jTextField.getText().length() != 0;
+                
+                checkEnter();
+            }
+        });
+        
+        jMarcaEquipoField.jTitleLabel.setText("Marca Equipo");
+        jMarcaEquipoField.jTextField.setText("escribe la marca del equipo");
+        jMarcaEquipoField.jTextField.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if(firstMarcaEquipo){
+                    jMarcaEquipoField.jTextField.setCaretPosition(jMarcaEquipoField.jTextField.getDocument().getLength());
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if( jMarcaEquipoField.jTextField.getText().length() == 0){
+                     jMarcaEquipoField.jTextField.setText("escribe la marca del equipo");
+                }
+            }
+        });
+        jMarcaEquipoField.jTextField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if(firstMarcaEquipo){
+                    jMarcaEquipoField.jTextField.setText("");
+                    firstMarcaEquipo = false;
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                marcaEquipoOK = jMarcaEquipoField.jTextField.getText().length() != 0;
+
+                checkEnter();
+            }
+        });
+        
+        jModeloEquipoField.jTitleLabel.setText("Modelo Equipo");
+        jModeloEquipoField.jTextField.setText("escribe el modelo del equipo");
+        jModeloEquipoField.jTextField.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if(firstModeloEquipo){
+                    jModeloEquipoField.jTextField.setCaretPosition(jModeloEquipoField.jTextField.getDocument().getLength());
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if( jModeloEquipoField.jTextField.getText().length() == 0){
+                     jModeloEquipoField.jTextField.setText("escribe el modelo del equipo");
+                }
+            }
+        });
+        jModeloEquipoField.jTextField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if(firstModeloEquipo){
+                    jModeloEquipoField.jTextField.setText("");
+                    firstModeloEquipo = false;
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                modeloEquipoOK = jModeloEquipoField.jTextField.getText().length() != 0;
+
+                checkEnter();
+            }
+        });
+        
+        jEspacioMaximoField.jTitleLabel.setText("Espacio maximo");
+        jEspacioMaximoField.jTextField.setText("escribe metros cuadrados");
+        jEspacioMaximoField.jTextField.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if(firstEspacioMaximo){
+                    jEspacioMaximoField.jTextField.setCaretPosition(jEspacioMaximoField.jTextField.getDocument().getLength());
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if( jEspacioMaximoField.jTextField.getText().length() == 0){
+                     jEspacioMaximoField.jTextField.setText("escribe metros cuadrados");
+                }
+            }
+        });
+        jEspacioMaximoField.jTextField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if(firstEspacioMaximo){
+                    jEspacioMaximoField.jTextField.setText("");
+                    firstEspacioMaximo = false;
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                espacioMaximoOK = jEspacioMaximoField.jTextField.getText().length() != 0;
+
+                checkEnter();
+            }
+        });
+        
+        jPrecioField.jTitleLabel.setText("Precio");
+        jPrecioField.jTextField.setText("escribe el precio del equipo");
+        jPrecioField.jTextField.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if(firstPrecio){
+                    jPrecioField.jTextField.setCaretPosition(jPrecioField.jTextField.getDocument().getLength());
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if( jPrecioField.jTextField.getText().length() == 0){
+                     jPrecioField.jTextField.setText("escribe el precio del equipo");
+                }
+            }
+        });
+        jPrecioField.jTextField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if(firstPrecio){
+                    jPrecioField.jTextField.setText("");
+                    firstPrecio = false;
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                precioOK = jPrecioField.jTextField.getText().length() != 0;
+
+                checkEnter();
+            }
+        });
+        
+        jAnchoField.jTitleLabel.setText("Ancho");
+        jAnchoField.jTextField.setText("escribe el ancho del equipo");
+        jAnchoField.jTextField.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if(firstAncho){
+                    jAnchoField.jTextField.setCaretPosition(jAnchoField.jTextField.getDocument().getLength());
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if( jAnchoField.jTextField.getText().length() == 0){
+                     jAnchoField.jTextField.setText("escribe el ancho del equipo");
+                }
+            }
+        });
+        jAnchoField.jTextField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if(firstAncho){
+                    jAnchoField.jTextField.setText("");
+                    firstAncho = false;
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                anchoOK = jAnchoField.jTextField.getText().length() != 0;
+
+                checkEnter();
+            }
+        });
+        
+        jAltoField.jTitleLabel.setText("Alto");
+        jAltoField.jTextField.setText("escribe el ancho del equipo");
+        jAltoField.jTextField.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if(firstAlto){
+                    jAltoField.jTextField.setCaretPosition(jAltoField.jTextField.getDocument().getLength());
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if( jAltoField.jTextField.getText().length() == 0){
+                     jAltoField.jTextField.setText("escribe el ancho del equipo");
+                }
+            }
+        });
+        jAltoField.jTextField.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if(firstAlto){
+                    jAltoField.jTextField.setText("");
+                    firstAlto = false;
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                altoOK = jAltoField.jTextField.getText().length() != 0;
+
+                checkEnter();
+            }
+        });
+        
+        jDescripcionField.jTitleLabel.setText("Descripcion del equipo");
+        jDescripcionField.jTextArea.setText("descripcion del equipo");
+        jDescripcionField.jTextArea.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                if(firstDescripcion){
+                    jDescripcionField.jTextArea.setCaretPosition(jDescripcionField.jTextArea.getDocument().getLength());
+                }
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                if( jDescripcionField.jTextArea.getText().length() == 0){
+                     jDescripcionField.jTextArea.setText("descripcion del equipo");
+                }
+            }
+        });
+        jDescripcionField.jTextArea.addKeyListener(new KeyListener() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                
+            }
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if(firstDescripcion){
+                    jDescripcionField.jTextArea.setText("");
+                    firstDescripcion = false;
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                descripcionOK = jDescripcionField.jTextArea.getText().length() != 0;
+
+                checkEnter();
+            }
+        });
+        
+        jCategoriaEquipoField.jTitleLabel.setText("Categoria Equipo");
+        jTipoEquipoField.jTitleLabel.setText("Tipo Equipo");
+        jCapacidadField.jTitleLabel.setText("Capacidad");
+        jRefrigeranteField.jTitleLabel.setText("Refrigerante");
+        jControlRemotoField.jTitleLabel.setText("Control remoto");
+        jInstalacionField.jTitleLabel.setText("Con instalacion");
+        
+        for (Categoria categoria : creationController.getCategorias()) {
+            jCategoriaEquipoField.jComboBox.addItem(categoria.getDescripcion());
+        }
+        
+        jCategoriaEquipoField.jComboBox.addItemListener((ItemEvent e) -> {
+            categoriaEquipoOK = jCategoriaEquipoField.jComboBox.getSelectedIndex() != 0;
+            checkEnter();
+        });
+        
+        for (TipoEquipo tipoEquipo : creationController.getTipoEquipos()) {
+            jTipoEquipoField.jComboBox.addItem(tipoEquipo.getName());
+        }
+        
+        jTipoEquipoField.jComboBox.addItemListener((ItemEvent e) -> {
+            tipoEquipoOK = jTipoEquipoField.jComboBox.getSelectedIndex() != 0;
+            checkEnter();
+        });
+        
+        for (Capacidad capacidad : creationController.getCapacidades()) {
+            jCapacidadField.jComboBox.addItem(capacidad.getCapacidad().toString());
+        }
+        
+        jCapacidadField.jComboBox.addItemListener((ItemEvent e) -> {
+            capacidadOK = jCapacidadField.jComboBox.getSelectedIndex() != 0;
+            checkEnter();
+        });
+        
+        for (Refrigerante refrigerante : creationController.getRefrigerantes()) {
+            jRefrigeranteField.jComboBox.addItem(refrigerante.getName());
+        }
+        
+        jRefrigeranteField.jComboBox.addItemListener((ItemEvent e) -> {
+            refrigeranteOK = jRefrigeranteField.jComboBox.getSelectedIndex() != 0;
+            checkEnter();
+        });
     }
 
+    private void checkEnter(){
+        
+        if(codigoEquipoOK && marcaEquipoOK && modeloEquipoOK && espacioMaximoOK 
+            && precioOK && anchoOK && altoOK && descripcionOK
+            && categoriaEquipoOK && tipoEquipoOK && capacidadOK && refrigeranteOK
+        ){   
+            Ventilador v = new Ventilador(
+                jCodigoEquipoField.jTextField.getText(),
+                (String)jCategoriaEquipoField.jComboBox.getSelectedItem(),
+                Integer.valueOf((String)jCapacidadField.jComboBox.getSelectedItem()),
+                (String)jCategoriaEquipoField.jComboBox.getSelectedItem(),
+                Double.valueOf(jEspacioMaximoField.jTextField.getText()),
+                jMarcaEquipoField.jTextField.getText(),
+                jModeloEquipoField.jTextField.getText(),
+                jControlRemotoField.jCheckBox.isSelected(),
+                jInstalacionField.jCheckBox.isSelected(),
+                Integer.valueOf(jPrecioField.jTextField.getText()),
+                Double.valueOf(jAnchoField.jTextField.getText()),
+                Double.valueOf(jAltoField.jTextField.getText()),
+                jDescripcionField.jTextArea.getText(),
+                (String)jRefrigeranteField.jComboBox.getSelectedItem()
+            );
+            
+            System.out.println("req");
+            System.out.println(creationController.addVentilador(v));
+            
+            barraPanelCreacion1.jContinueButton.setEnabled(true);
+        }
+        else{
+            barraPanelCreacion1.jContinueButton.setEnabled(false);
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,89 +459,87 @@ public class PantallaCreacion extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
+        jMarcaEquipoField = new proyectosemestral.Paneles.ItemCreacionText();
+        jModeloEquipoField = new proyectosemestral.Paneles.ItemCreacionText();
+        jCategoriaEquipoField = new proyectosemestral.Paneles.ItemCreacionDropdown();
+        jTipoEquipoField = new proyectosemestral.Paneles.ItemCreacionDropdown();
+        jCapacidadField = new proyectosemestral.Paneles.ItemCreacionDropdown();
+        jRefrigeranteField = new proyectosemestral.Paneles.ItemCreacionDropdown();
+        jEspacioMaximoField = new proyectosemestral.Paneles.ItemCreacionText();
+        jControlRemotoField = new proyectosemestral.Paneles.ItemCreacionCheckBox();
+        jInstalacionField = new proyectosemestral.Paneles.ItemCreacionCheckBox();
+        jPrecioField = new proyectosemestral.Paneles.ItemCreacionText();
+        jAnchoField = new proyectosemestral.Paneles.ItemCreacionText();
+        jAltoField = new proyectosemestral.Paneles.ItemCreacionText();
+        jDescripcionField = new proyectosemestral.Paneles.ItemCreacionTextArea();
+        jCodigoEquipoField = new proyectosemestral.Paneles.ItemCreacionText();
         barraPanelCreacion1 = new proyectosemestral.Paneles.BarraPanelCreacion();
-        itemCreacionText1 = new proyectosemestral.Paneles.ItemCreacionText();
-        itemCreacionText2 = new proyectosemestral.Paneles.ItemCreacionText();
-        itemCreacionText3 = new proyectosemestral.Paneles.ItemCreacionText();
-        itemCreacionDropdown1 = new proyectosemestral.Paneles.ItemCreacionDropdown();
-        itemCreacionDropdown2 = new proyectosemestral.Paneles.ItemCreacionDropdown();
-        itemCreacionDropdown3 = new proyectosemestral.Paneles.ItemCreacionDropdown();
-        itemCreacionDropdown4 = new proyectosemestral.Paneles.ItemCreacionDropdown();
-        itemCreacionText4 = new proyectosemestral.Paneles.ItemCreacionText();
-        itemCreacionCheckBox1 = new proyectosemestral.Paneles.ItemCreacionCheckBox();
-        itemCreacionCheckBox2 = new proyectosemestral.Paneles.ItemCreacionCheckBox();
-        itemCreacionText5 = new proyectosemestral.Paneles.ItemCreacionText();
-        itemCreacionText6 = new proyectosemestral.Paneles.ItemCreacionText();
-        itemCreacionText7 = new proyectosemestral.Paneles.ItemCreacionText();
-        itemCreacionTextArea1 = new proyectosemestral.Paneles.ItemCreacionTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1280, 720));
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(1280, 1800));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(1280, 720));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1280, 1500));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(barraPanelCreacion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(440, 440, 440)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(itemCreacionText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(itemCreacionText2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(itemCreacionText3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(itemCreacionDropdown1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(itemCreacionDropdown2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(itemCreacionDropdown3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(itemCreacionDropdown4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(itemCreacionText4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(itemCreacionCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(itemCreacionCheckBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(itemCreacionText5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(itemCreacionText6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(itemCreacionText7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(itemCreacionTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jMarcaEquipoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCodigoEquipoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jModeloEquipoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCategoriaEquipoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTipoEquipoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCapacidadField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jRefrigeranteField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jEspacioMaximoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jControlRemotoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jInstalacionField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPrecioField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jAnchoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jAltoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jDescripcionField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(448, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(barraPanelCreacion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jCodigoEquipoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(37, 37, 37)
+                .addComponent(jMarcaEquipoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addComponent(itemCreacionText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jModeloEquipoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addComponent(itemCreacionText2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jCategoriaEquipoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addComponent(itemCreacionText3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTipoEquipoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addComponent(itemCreacionDropdown1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jCapacidadField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addComponent(itemCreacionDropdown2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jRefrigeranteField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addComponent(itemCreacionDropdown3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jEspacioMaximoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addComponent(itemCreacionDropdown4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jControlRemotoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addComponent(itemCreacionText4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jInstalacionField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addComponent(itemCreacionCheckBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPrecioField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addComponent(itemCreacionCheckBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jAnchoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addComponent(itemCreacionText5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jAltoField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addComponent(itemCreacionText6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(itemCreacionText7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(itemCreacionTextArea1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(1074, Short.MAX_VALUE))
+                .addComponent(jDescripcionField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(jPanel1);
@@ -123,10 +549,14 @@ public class PantallaCreacion extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(barraPanelCreacion1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(barraPanelCreacion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 613, Short.MAX_VALUE))
         );
 
         pack();
@@ -153,21 +583,21 @@ public class PantallaCreacion extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private proyectosemestral.Paneles.BarraPanelCreacion barraPanelCreacion1;
-    private proyectosemestral.Paneles.ItemCreacionCheckBox itemCreacionCheckBox1;
-    private proyectosemestral.Paneles.ItemCreacionCheckBox itemCreacionCheckBox2;
-    private proyectosemestral.Paneles.ItemCreacionDropdown itemCreacionDropdown1;
-    private proyectosemestral.Paneles.ItemCreacionDropdown itemCreacionDropdown2;
-    private proyectosemestral.Paneles.ItemCreacionDropdown itemCreacionDropdown3;
-    private proyectosemestral.Paneles.ItemCreacionDropdown itemCreacionDropdown4;
-    private proyectosemestral.Paneles.ItemCreacionText itemCreacionText1;
-    private proyectosemestral.Paneles.ItemCreacionText itemCreacionText2;
-    private proyectosemestral.Paneles.ItemCreacionText itemCreacionText3;
-    private proyectosemestral.Paneles.ItemCreacionText itemCreacionText4;
-    private proyectosemestral.Paneles.ItemCreacionText itemCreacionText5;
-    private proyectosemestral.Paneles.ItemCreacionText itemCreacionText6;
-    private proyectosemestral.Paneles.ItemCreacionText itemCreacionText7;
-    private proyectosemestral.Paneles.ItemCreacionTextArea itemCreacionTextArea1;
+    private proyectosemestral.Paneles.ItemCreacionText jAltoField;
+    private proyectosemestral.Paneles.ItemCreacionText jAnchoField;
+    private proyectosemestral.Paneles.ItemCreacionDropdown jCapacidadField;
+    private proyectosemestral.Paneles.ItemCreacionDropdown jCategoriaEquipoField;
+    private proyectosemestral.Paneles.ItemCreacionText jCodigoEquipoField;
+    private proyectosemestral.Paneles.ItemCreacionCheckBox jControlRemotoField;
+    private proyectosemestral.Paneles.ItemCreacionTextArea jDescripcionField;
+    private proyectosemestral.Paneles.ItemCreacionText jEspacioMaximoField;
+    private proyectosemestral.Paneles.ItemCreacionCheckBox jInstalacionField;
+    private proyectosemestral.Paneles.ItemCreacionText jMarcaEquipoField;
+    private proyectosemestral.Paneles.ItemCreacionText jModeloEquipoField;
     private javax.swing.JPanel jPanel1;
+    private proyectosemestral.Paneles.ItemCreacionText jPrecioField;
+    private proyectosemestral.Paneles.ItemCreacionDropdown jRefrigeranteField;
     private javax.swing.JScrollPane jScrollPane1;
+    private proyectosemestral.Paneles.ItemCreacionDropdown jTipoEquipoField;
     // End of variables declaration//GEN-END:variables
 }

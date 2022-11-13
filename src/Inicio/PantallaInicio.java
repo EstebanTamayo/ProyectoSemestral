@@ -5,7 +5,12 @@
 package Inicio;
 
 import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.UIManager;
+import proyectosemestral.Paneles.TarjetaProducto;
 
 /**
  *
@@ -18,6 +23,7 @@ public class PantallaInicio extends javax.swing.JFrame {
      */
     public PantallaInicio() {
         initComponents();
+        bannerInfo1.infoPanel3.jTitleLabel.setText("prueba");
     }
 
     /**
@@ -40,10 +46,6 @@ public class PantallaInicio extends javax.swing.JFrame {
         btCrear = new javax.swing.JButton();
         bannerInfo1 = new proyectosemestral.Paneles.BannerInfo();
         jPanel1 = new javax.swing.JPanel();
-        tarjetaProducto1 = new proyectosemestral.Paneles.TarjetaProducto();
-        tarjetaProducto2 = new proyectosemestral.Paneles.TarjetaProducto();
-        tarjetaProducto3 = new proyectosemestral.Paneles.TarjetaProducto();
-        tarjetaProducto4 = new proyectosemestral.Paneles.TarjetaProducto();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -98,6 +100,11 @@ public class PantallaInicio extends javax.swing.JFrame {
         btComparar.setText("Comparar");
         btComparar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btComparar.setPreferredSize(new java.awt.Dimension(96, 34));
+        btComparar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCompararActionPerformed(evt);
+            }
+        });
 
         btProductos.setBackground(new java.awt.Color(31, 106, 178));
         btProductos.setFont(new java.awt.Font("Arial Black", 0, 12)); // NOI18N
@@ -111,6 +118,11 @@ public class PantallaInicio extends javax.swing.JFrame {
         btCrear.setText("Crear");
         btCrear.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btCrear.setPreferredSize(new java.awt.Dimension(96, 34));
+        btCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCrearActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PanelBotonesLayout = new javax.swing.GroupLayout(PanelBotones);
         PanelBotones.setLayout(PanelBotonesLayout);
@@ -148,34 +160,11 @@ public class PantallaInicio extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addComponent(tarjetaProducto1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(tarjetaProducto2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(415, 415, 415)
-                        .addComponent(tarjetaProducto3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(415, 415, 415)
-                        .addComponent(tarjetaProducto4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(515, Short.MAX_VALUE))
+            .addGap(0, 1280, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(tarjetaProducto2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tarjetaProducto3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tarjetaProducto4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(tarjetaProducto1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(718, 718, 718))
+            .addGap(0, 280, Short.MAX_VALUE)
         );
 
         bg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 440, 1280, 280));
@@ -198,6 +187,16 @@ public class PantallaInicio extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCrearActionPerformed
+        // TODO add your handling code here:
+        System.out.println("btn");
+    }//GEN-LAST:event_btCrearActionPerformed
+
+    private void btCompararActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCompararActionPerformed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_btCompararActionPerformed
 
     /**
      * @param args the command line arguments
@@ -227,9 +226,5 @@ public class PantallaInicio extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblLogo;
-    private proyectosemestral.Paneles.TarjetaProducto tarjetaProducto1;
-    private proyectosemestral.Paneles.TarjetaProducto tarjetaProducto2;
-    private proyectosemestral.Paneles.TarjetaProducto tarjetaProducto3;
-    private proyectosemestral.Paneles.TarjetaProducto tarjetaProducto4;
     // End of variables declaration//GEN-END:variables
 }

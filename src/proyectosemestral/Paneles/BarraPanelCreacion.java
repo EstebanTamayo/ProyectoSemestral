@@ -26,20 +26,20 @@ public class BarraPanelCreacion extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jTitleLabel = new javax.swing.JLabel();
+        jBackButton = new javax.swing.JButton();
+        jContinueButton = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel1.setText("Modo Creacion");
+        jTitleLabel.setForeground(new java.awt.Color(51, 51, 51));
+        jTitleLabel.setText("Modo Creacion");
 
-        jButton1.setBackground(new java.awt.Color(31, 106, 178));
-        jButton1.setText("Volver");
+        jBackButton.setBackground(new java.awt.Color(31, 106, 178));
+        jBackButton.setText("Volver");
 
-        jButton2.setBackground(new java.awt.Color(31, 106, 178));
-        jButton2.setText("Enviar");
+        jContinueButton.setBackground(new java.awt.Color(31, 106, 178));
+        jContinueButton.setText("Enviar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -47,11 +47,11 @@ public class BarraPanelCreacion extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(jButton1)
+                .addComponent(jBackButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 500, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(jTitleLabel)
                 .addGap(468, 468, 468)
-                .addComponent(jButton2)
+                .addComponent(jContinueButton)
                 .addGap(32, 32, 32))
         );
         layout.setVerticalGroup(
@@ -59,17 +59,17 @@ public class BarraPanelCreacion extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jLabel1))
+                    .addComponent(jBackButton)
+                    .addComponent(jContinueButton)
+                    .addComponent(jTitleLabel))
                 .addContainerGap(38, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
+    public javax.swing.JButton jBackButton;
+    public javax.swing.JButton jContinueButton;
+    private javax.swing.JLabel jTitleLabel;
     // End of variables declaration//GEN-END:variables
 }

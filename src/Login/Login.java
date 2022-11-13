@@ -170,12 +170,7 @@ public class Login extends javax.swing.JFrame {
 
     private void lblUsuarioKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lblUsuarioKeyReleased
         // TODO add your handling code here:
-        if(lblUsuario.getText().length() == 0){
-            userOK = false;
-        }
-        else{
-            userOK = true;
-        }
+        userOK = lblUsuario.getText().length() != 0;
         
         checkEnter();
     }//GEN-LAST:event_lblUsuarioKeyReleased
@@ -184,7 +179,6 @@ public class Login extends javax.swing.JFrame {
 
         if(firstUser){
             lblUsuario.setCaretPosition(lblUsuario.getDocument().getLength());
-            return;
         }
     }//GEN-LAST:event_lblUsuarioFocusGained
 
@@ -195,12 +189,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jPasswordFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordFieldKeyReleased
-          if(jPasswordField.getPassword().length == 0){
-            passOK = false;
-        }
-        else{
-            passOK = true;
-        }
+        passOK = jPasswordField.getPassword().length != 0;
         
         checkEnter();
     }//GEN-LAST:event_jPasswordFieldKeyReleased

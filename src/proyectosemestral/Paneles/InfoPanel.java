@@ -26,15 +26,15 @@ public class InfoPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jTitleLabel = new javax.swing.JLabel();
+        jDescLabel = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(51, 51, 51));
 
-        jLabel1.setText("titulo");
+        jTitleLabel.setText("titulo");
 
-        jLabel2.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel2.setText("descripcion");
+        jDescLabel.setForeground(new java.awt.Color(153, 153, 153));
+        jDescLabel.setText("descripcion");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -44,26 +44,26 @@ public class InfoPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(79, 79, 79)
-                        .addComponent(jLabel1))
+                        .addComponent(jTitleLabel))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(57, 57, 57)
-                        .addComponent(jLabel2)))
+                        .addComponent(jDescLabel)))
                 .addContainerGap(57, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addComponent(jLabel1)
+                .addComponent(jTitleLabel)
                 .addGap(52, 52, 52)
-                .addComponent(jLabel2)
+                .addComponent(jDescLabel)
                 .addContainerGap(42, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    public javax.swing.JLabel jDescLabel;
+    public javax.swing.JLabel jTitleLabel;
     // End of variables declaration//GEN-END:variables
 }

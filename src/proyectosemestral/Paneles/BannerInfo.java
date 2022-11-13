@@ -27,7 +27,7 @@ public class BannerInfo extends javax.swing.JPanel {
     private void initComponents() {
 
         TitleSection = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jTitleLabel = new javax.swing.JLabel();
         InfoSection = new javax.swing.JPanel();
         infoPanel3 = new proyectosemestral.Paneles.InfoPanel();
         infoPanel4 = new proyectosemestral.Paneles.InfoPanel();
@@ -37,7 +37,7 @@ public class BannerInfo extends javax.swing.JPanel {
 
         TitleSection.setBackground(new java.awt.Color(31, 106, 178));
 
-        jLabel1.setText("title");
+        jTitleLabel.setText("title");
 
         javax.swing.GroupLayout TitleSectionLayout = new javax.swing.GroupLayout(TitleSection);
         TitleSection.setLayout(TitleSectionLayout);
@@ -45,14 +45,14 @@ public class BannerInfo extends javax.swing.JPanel {
             TitleSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TitleSectionLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(jTitleLabel)
                 .addGap(621, 621, 621))
         );
         TitleSectionLayout.setVerticalGroup(
             TitleSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TitleSectionLayout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addComponent(jLabel1)
+                .addComponent(jTitleLabel)
                 .addContainerGap(38, Short.MAX_VALUE))
         );
 
@@ -100,8 +100,8 @@ public class BannerInfo extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel InfoSection;
     private javax.swing.JPanel TitleSection;
-    private proyectosemestral.Paneles.InfoPanel infoPanel3;
-    private proyectosemestral.Paneles.InfoPanel infoPanel4;
-    private javax.swing.JLabel jLabel1;
+    public proyectosemestral.Paneles.InfoPanel infoPanel3;
+    public proyectosemestral.Paneles.InfoPanel infoPanel4;
+    public javax.swing.JLabel jTitleLabel;
     // End of variables declaration//GEN-END:variables
 }
