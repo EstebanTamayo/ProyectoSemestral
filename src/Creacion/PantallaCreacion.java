@@ -10,23 +10,17 @@ import Entidades.Categoria;
 import Entidades.Capacidad;
 import Entidades.Refrigerante;
 import com.formdev.flatlaf.FlatLightLaf;
-import java.awt.Component;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import javax.swing.JList;
+import java.util.ArrayList;
+import java.util.Set;
 import javax.swing.JOptionPane;
-import javax.swing.ListCellRenderer;
 import javax.swing.UIManager;
-import proyectosemestral.DataConnection;
 
 /**
  *
@@ -58,6 +52,8 @@ public class PantallaCreacion extends javax.swing.JFrame {
     private boolean tipoEquipoOK = false;
     private boolean capacidadOK = false;
     private boolean refrigeranteOK = false;
+    
+    private Set<String> numErrors;
   
     /**
      * Creates new form PantallaCreacion
@@ -76,6 +72,36 @@ public class PantallaCreacion extends javax.swing.JFrame {
         barraPanelCreacion1.jContinueButton.setEnabled(false);
         barraPanelCreacion1.jContinueButton.addActionListener((ActionEvent e) -> {
             
+            System.out.println("verificar");
+            System.out.println(espacioMaximoOK);
+            System.out.println(anchoOK);
+            System.out.println(altoOK);
+            System.out.println(precioOK);
+            
+            if(!espacioMaximoOK || !anchoOK || !altoOK || !precioOK){
+                String msjError = "Los campos de ";
+                if(!espacioMaximoOK){
+                    msjError += "Espacio Maximo, ";
+                }
+                
+                if(!anchoOK){
+                    msjError += "Ancho, ";
+                }
+                
+                if(!altoOK){
+                    msjError += "Alto, ";
+                }
+                
+                if(!precioOK){
+                    msjError += "Precio, ";
+                }
+                msjError = msjError.substring(0, msjError.length() - 2);
+                msjError += " deben ser numericos. Intente denuevo";
+                JOptionPane.showMessageDialog(this, msjError, "Error", 0);
+                return;
+            }
+            
+            System.out.println("create ventilador");
             Ventilador v = new Ventilador(
                 jCodigoEquipoField.jTextField.getText(),
                 (String)jCategoriaEquipoField.jComboBox.getSelectedItem(),
@@ -130,7 +156,9 @@ public class PantallaCreacion extends javax.swing.JFrame {
             @Override
             public void focusLost(FocusEvent e) {
                 if( jCodigoEquipoField.jTextField.getText().length() == 0){
-                     jCodigoEquipoField.jTextField.setText("escribe el codigo del equipo");
+                    jCodigoEquipoField.jTextField.setText("escribe el codigo del equipo");
+                    jCodigoEquipoField.jTextField.setForeground(new Color(153,153,153));
+                    firstCodigoEquipo = true;
                 }
             }
         });
@@ -144,6 +172,7 @@ public class PantallaCreacion extends javax.swing.JFrame {
             public void keyPressed(KeyEvent e) {
                 if(firstCodigoEquipo){
                     jCodigoEquipoField.jTextField.setText("");
+                    jCodigoEquipoField.jTextField.setForeground(new Color(51,51,51));
                     firstCodigoEquipo = false;
                 }
             }
@@ -169,7 +198,9 @@ public class PantallaCreacion extends javax.swing.JFrame {
             @Override
             public void focusLost(FocusEvent e) {
                 if( jMarcaEquipoField.jTextField.getText().length() == 0){
-                     jMarcaEquipoField.jTextField.setText("escribe la marca del equipo");
+                    jMarcaEquipoField.jTextField.setText("escribe la marca del equipo");
+                    jMarcaEquipoField.jTextField.setForeground(new Color(153,153,153));
+                    firstMarcaEquipo = true;
                 }
             }
         });
@@ -183,6 +214,7 @@ public class PantallaCreacion extends javax.swing.JFrame {
             public void keyPressed(KeyEvent e) {
                 if(firstMarcaEquipo){
                     jMarcaEquipoField.jTextField.setText("");
+                    jMarcaEquipoField.jTextField.setForeground(new Color(51,51,51));
                     firstMarcaEquipo = false;
                 }
             }
@@ -209,6 +241,8 @@ public class PantallaCreacion extends javax.swing.JFrame {
             public void focusLost(FocusEvent e) {
                 if( jModeloEquipoField.jTextField.getText().length() == 0){
                      jModeloEquipoField.jTextField.setText("escribe el modelo del equipo");
+                     jModeloEquipoField.jTextField.setForeground(new Color(153,153,153));
+                     firstModeloEquipo = true;
                 }
             }
         });
@@ -222,6 +256,7 @@ public class PantallaCreacion extends javax.swing.JFrame {
             public void keyPressed(KeyEvent e) {
                 if(firstModeloEquipo){
                     jModeloEquipoField.jTextField.setText("");
+                    jModeloEquipoField.jTextField.setForeground(new Color(51,51,51));
                     firstModeloEquipo = false;
                 }
             }
@@ -248,6 +283,11 @@ public class PantallaCreacion extends javax.swing.JFrame {
             public void focusLost(FocusEvent e) {
                 if( jEspacioMaximoField.jTextField.getText().length() == 0){
                      jEspacioMaximoField.jTextField.setText("escribe metros cuadrados");
+                     jModeloEquipoField.jTextField.setForeground(new Color(153,153,153));
+                     firstEspacioMaximo = true;
+                }
+                else if(!espacioMaximoOK){
+                    JOptionPane.showMessageDialog(null, "En el campo Espacio Maximo, ingrese solo numeros", "Error", 0);
                 }
             }
         });
@@ -261,14 +301,25 @@ public class PantallaCreacion extends javax.swing.JFrame {
             public void keyPressed(KeyEvent e) {
                 if(firstEspacioMaximo){
                     jEspacioMaximoField.jTextField.setText("");
+                    jEspacioMaximoField.jTextField.setForeground(new Color(51,51,51));
                     firstEspacioMaximo = false;
                 }
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
-                espacioMaximoOK = jEspacioMaximoField.jTextField.getText().length() != 0;
-
+                try{
+                    int value = Integer.valueOf(jEspacioMaximoField.jTextField.getText());
+                    if(value < 0) return;
+                    jEspacioMaximoField.jTextField.setForeground(new Color(51,51,51));
+                    espacioMaximoOK = true;
+                }
+                catch(Exception ex){
+                    //System.out.println(ex);
+                    jEspacioMaximoField.jTextField.setForeground(new Color(255,0,0));
+                    espacioMaximoOK = false;
+                }
+                
                 checkEnter();
             }
         });
@@ -287,6 +338,11 @@ public class PantallaCreacion extends javax.swing.JFrame {
             public void focusLost(FocusEvent e) {
                 if( jPrecioField.jTextField.getText().length() == 0){
                      jPrecioField.jTextField.setText("escribe el precio del equipo");
+                     jPrecioField.jTextField.setForeground(new Color(153,153,153));
+                     firstPrecio = true;
+                }
+                else if(!precioOK){
+                    JOptionPane.showMessageDialog(null, "En el campo Precio, ingrese solo numeros", "Error", 0);
                 }
             }
         });
@@ -300,13 +356,24 @@ public class PantallaCreacion extends javax.swing.JFrame {
             public void keyPressed(KeyEvent e) {
                 if(firstPrecio){
                     jPrecioField.jTextField.setText("");
+                    jPrecioField.jTextField.setForeground(new Color(51,51,51));
                     firstPrecio = false;
                 }
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
-                precioOK = jPrecioField.jTextField.getText().length() != 0;
+                try{
+                    int value = Integer.valueOf(jPrecioField.jTextField.getText());
+                    if(value < 0) return;
+                    jPrecioField.jTextField.setForeground(new Color(51,51,51));
+                    precioOK = true;
+                }
+                catch(Exception ex){
+                    //System.out.println(ex);
+                    jPrecioField.jTextField.setForeground(new Color(255,0,0));
+                    precioOK = false;
+                }
 
                 checkEnter();
             }
@@ -326,6 +393,11 @@ public class PantallaCreacion extends javax.swing.JFrame {
             public void focusLost(FocusEvent e) {
                 if( jAnchoField.jTextField.getText().length() == 0){
                      jAnchoField.jTextField.setText("escribe el ancho del equipo");
+                     jAnchoField.jTextField.setForeground(new Color(51,51,51));
+                    firstAncho = false;
+                }
+                else if(!anchoOK){
+                    JOptionPane.showMessageDialog(null, "En el campo Ancho, ingrese solo numeros", "Error", 0);
                 }
             }
         });
@@ -339,13 +411,24 @@ public class PantallaCreacion extends javax.swing.JFrame {
             public void keyPressed(KeyEvent e) {
                 if(firstAncho){
                     jAnchoField.jTextField.setText("");
+                    jAnchoField.jTextField.setForeground(new Color(51,51,51));
                     firstAncho = false;
                 }
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
-                anchoOK = jAnchoField.jTextField.getText().length() != 0;
+                try{
+                    int value = Integer.valueOf(jAnchoField.jTextField.getText());
+                    if(value < 0) return;
+                    jAnchoField.jTextField.setForeground(new Color(51,51,51));
+                    anchoOK = true;
+                }
+                catch(Exception ex){
+                    //System.out.println(ex);
+                    jAnchoField.jTextField.setForeground(new Color(255,0,0));
+                    anchoOK = false;
+                }
 
                 checkEnter();
             }
@@ -365,6 +448,11 @@ public class PantallaCreacion extends javax.swing.JFrame {
             public void focusLost(FocusEvent e) {
                 if( jAltoField.jTextField.getText().length() == 0){
                      jAltoField.jTextField.setText("escribe el ancho del equipo");
+                     jAltoField.jTextField.setForeground(new Color(51,51,51));
+                    firstAlto = false;
+                }
+                else if(!altoOK){
+                    JOptionPane.showMessageDialog(null, "En el campo Alto, ingrese solo numeros", "Error", 0);
                 }
             }
         });
@@ -378,13 +466,24 @@ public class PantallaCreacion extends javax.swing.JFrame {
             public void keyPressed(KeyEvent e) {
                 if(firstAlto){
                     jAltoField.jTextField.setText("");
+                    jAltoField.jTextField.setForeground(new Color(51,51,51));
                     firstAlto = false;
                 }
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
-                altoOK = jAltoField.jTextField.getText().length() != 0;
+                try{
+                    int value = Integer.valueOf(jAltoField.jTextField.getText());
+                    if(value < 0) return;
+                    jAltoField.jTextField.setForeground(new Color(51,51,51));
+                    altoOK = true;
+                }
+                catch(Exception ex){
+                    //System.out.println(ex);
+                    jAltoField.jTextField.setForeground(new Color(255,0,0));
+                    altoOK = false;
+                }
 
                 checkEnter();
             }
@@ -404,6 +503,8 @@ public class PantallaCreacion extends javax.swing.JFrame {
             public void focusLost(FocusEvent e) {
                 if( jDescripcionField.jTextArea.getText().length() == 0){
                      jDescripcionField.jTextArea.setText("descripcion del equipo");
+                     jDescripcionField.jTextArea.setForeground(new Color(153,153,153));
+                     firstDescripcion = true;
                 }
             }
         });
@@ -417,6 +518,7 @@ public class PantallaCreacion extends javax.swing.JFrame {
             public void keyPressed(KeyEvent e) {
                 if(firstDescripcion){
                     jDescripcionField.jTextArea.setText("");
+                    jDescripcionField.jTextArea.setForeground(new Color(51,51,51));
                     firstDescripcion = false;
                 }
             }
@@ -441,6 +543,10 @@ public class PantallaCreacion extends javax.swing.JFrame {
         }
         
         jCategoriaEquipoField.jComboBox.addItemListener((ItemEvent e) -> {
+            jCategoriaEquipoField.jComboBox.setForeground(
+                jCategoriaEquipoField.jComboBox.getSelectedIndex() != 0 ?
+                new Color(51,51,51) : new Color(153,153,153)
+            );
             categoriaEquipoOK = jCategoriaEquipoField.jComboBox.getSelectedIndex() != 0;
             checkEnter();
         });
@@ -450,6 +556,10 @@ public class PantallaCreacion extends javax.swing.JFrame {
         }
         
         jTipoEquipoField.jComboBox.addItemListener((ItemEvent e) -> {
+            jTipoEquipoField.jComboBox.setForeground(
+                jTipoEquipoField.jComboBox.getSelectedIndex() != 0 ?
+                new Color(51,51,51) : new Color(153,153,153)
+            );
             tipoEquipoOK = jTipoEquipoField.jComboBox.getSelectedIndex() != 0;
             checkEnter();
         });
@@ -459,6 +569,10 @@ public class PantallaCreacion extends javax.swing.JFrame {
         }
         
         jCapacidadField.jComboBox.addItemListener((ItemEvent e) -> {
+            jCapacidadField.jComboBox.setForeground(
+                jCapacidadField.jComboBox.getSelectedIndex() != 0 ?
+                new Color(51,51,51) : new Color(153,153,153)
+            );
             capacidadOK = jCapacidadField.jComboBox.getSelectedIndex() != 0;
             checkEnter();
         });
@@ -468,6 +582,10 @@ public class PantallaCreacion extends javax.swing.JFrame {
         }
         
         jRefrigeranteField.jComboBox.addItemListener((ItemEvent e) -> {
+            jRefrigeranteField.jComboBox.setForeground(
+                jRefrigeranteField.jComboBox.getSelectedIndex() != 0 ?
+                new Color(51,51,51) : new Color(153,153,153)
+            );
             refrigeranteOK = jRefrigeranteField.jComboBox.getSelectedIndex() != 0;
             checkEnter();
         });

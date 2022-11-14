@@ -5,6 +5,7 @@
 package Login;
 
 import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
@@ -156,6 +157,7 @@ public class Login extends javax.swing.JFrame {
         
         if(firstUser){
             lblUsuario.setText("");
+            lblUsuario.setForeground(new Color(51,51,51));
             firstUser = false;
         }
     }//GEN-LAST:event_lblUsuarioKeyPressed
@@ -165,6 +167,8 @@ public class Login extends javax.swing.JFrame {
         
         if(lblUsuario.getText().length() == 0){
             lblUsuario.setText("Ingrese usuario");
+            lblUsuario.setForeground(new Color(153,153,153));
+            firstUser = true;
         }
     }//GEN-LAST:event_lblUsuarioFocusLost
 
@@ -198,6 +202,7 @@ public class Login extends javax.swing.JFrame {
         
         if(firstPass){
             jPasswordField.setText("");
+            jPasswordField.setForeground(new Color(51,51,51));
             firstPass = false;
         }
     }//GEN-LAST:event_jPasswordFieldKeyPressed
