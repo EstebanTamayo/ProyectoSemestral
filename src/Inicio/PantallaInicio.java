@@ -31,6 +31,8 @@ public class PantallaInicio extends javax.swing.JFrame {
         
         initComponents();
         
+        barraBotones1.setPadre(this);
+        
         for (VentiladorItemDTO ventiladorDTO : inicioController.getVentiladoresItems()) {
             data.add(new String[]{
                 ventiladorDTO.getModelo(),
@@ -66,7 +68,7 @@ public class PantallaInicio extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        barraBotonesSuperior1 = new proyectosemestral.Paneles.BarraBotonesSuperior();
+        barraBotones1 = new proyectosemestral.Paneles.BarraBotones();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -113,7 +115,7 @@ public class PantallaInicio extends javax.swing.JFrame {
         );
 
         bg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 500, 1280, 280));
-        bg.add(barraBotonesSuperior1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, -1));
+        bg.add(barraBotones1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jScrollPane2.setViewportView(bg);
 
@@ -169,7 +171,7 @@ public class PantallaInicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private proyectosemestral.Paneles.BannerInfo bannerInfo1;
-    private proyectosemestral.Paneles.BarraBotonesSuperior barraBotonesSuperior1;
+    private proyectosemestral.Paneles.BarraBotones barraBotones1;
     private javax.swing.JPanel bg;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
