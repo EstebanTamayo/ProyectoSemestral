@@ -15,13 +15,16 @@ import java.util.ArrayList;
 public class CompararController {
     private PantallaComparar pantallaComparar;
     private CompararDataModel compararDataModel = new CompararDataModel();
+    private ArrayList<VentiladorCompareDTO> data   = new ArrayList<>();
 
     public CompararController(PantallaComparar pantallaComparar) {
         this.pantallaComparar = pantallaComparar;
     }
 
     public ArrayList<VentiladorCompareDTO> getComparaciones() {
-        return compararDataModel.getComparaciones();
+        ArrayList<VentiladorCompareDTO> lista   = compararDataModel.getComparaciones();
+        data = lista;
+        return lista;
     }
 
     void GoItem(int row) {
@@ -29,5 +32,9 @@ public class CompararController {
         p.setIndex(row);
         p.setVisible(true);
         pantallaComparar.dispose();
+    }
+
+    public boolean deleteComparacion(int id) {
+        return compararDataModel.deleteComparacion(id);
     }
 }

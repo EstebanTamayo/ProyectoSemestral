@@ -6,16 +6,12 @@ package Listado;
 
 import Entidades.VentiladorItemDTO;
 import com.formdev.flatlaf.FlatLightLaf;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import javax.swing.DefaultListSelectionModel;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 import javax.swing.UIManager;
-import javax.swing.event.ListSelectionEvent;
 import javax.swing.table.DefaultTableModel;
+import proyectosemestral.DataConnection;
 
 /**
  *
@@ -26,6 +22,7 @@ public class PantallaLista extends javax.swing.JFrame {
     private ListadoController listadoController;
     private String[]          colums = { "modelo", "marca", "tipo equipo", "precio" };
     private ArrayList<String[]> data   = new ArrayList<>();
+    private ArrayList<VentiladorItemDTO> lista   = new ArrayList<>();
     /**
      * Creates new form PantallaLista
      */
@@ -39,6 +36,7 @@ public class PantallaLista extends javax.swing.JFrame {
         barraBotones1.jButtonProduct.setEnabled(false);
 
         for (VentiladorItemDTO ventiladorDTO : listadoController.getVentiladoresItems()) {
+            lista.add(ventiladorDTO);
             data.add(new String[]{
                 ventiladorDTO.getModelo(),
                 ventiladorDTO.getMarca(),
@@ -145,9 +143,26 @@ public class PantallaLista extends javax.swing.JFrame {
         }
         else if(evt.getButton() == MouseEvent.BUTTON3)
         {
+            if(DataConnection.userRole != 'A') return;
+            //if(DataConnection.userId != 1) return;
+            
             int row = jTable1.rowAtPoint(evt.getPoint());
             if (row >= 0 && row < jTable1.getRowCount()) {
+                //se hizo click derecho en una fila que existe
+                
                 jTable1.setRowSelectionInterval(row, row);
+                
+                int respuesta = JOptionPane.showConfirmDialog(this, "¿Seguro que deseas eliminar este producto de la tienda?", "Eliminar producto", 0);
+                
+                if(respuesta == 0){
+                    if(listadoController.deleteItem(lista.get(row).getId())){
+                        lista.remove(row);
+                        data.remove(row);
+                        DefaultTableModel model  = new DefaultTableModel( data.stream().toArray(String[][]::new), colums );
+                        jTable1.setModel( model );
+                        JOptionPane.showMessageDialog(this, "Producto eliminado correctamente", "Exito",1);
+                    }
+                }
             } else {
                 jTable1.clearSelection();
             }

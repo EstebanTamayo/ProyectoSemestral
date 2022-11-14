@@ -13,12 +13,9 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.text.NumberFormat;
 import java.util.ArrayList;
-import javax.swing.JFormattedTextField;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.text.NumberFormatter;
 
 /**
  * @author lr56c

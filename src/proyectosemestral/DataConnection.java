@@ -13,4 +13,5 @@ public class DataConnection {
     public static final String user     = "root";
     public static final String pass     = "";
     public static int userId = 0;
+    public static char userRole = 'U';
 }

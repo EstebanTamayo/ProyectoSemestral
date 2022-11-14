@@ -31,4 +31,8 @@ public class ListadoController {
         p.setVisible(true);
         view.dispose();
     }
+
+    public boolean deleteItem(int id) {
+        return listadoDataModel.deleteItem(id);
+    }
 }

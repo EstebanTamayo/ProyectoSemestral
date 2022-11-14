@@ -8,6 +8,7 @@ import Entidades.VentiladorCompareDTO;
 import Entidades.VentiladorItemDTO;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -54,5 +55,29 @@ public class CompararDataModel {
         }
         
         return lista;
+    }
+
+    public boolean deleteComparacion(int id) {
+        
+        boolean value = false;
+        
+        try{
+            Connection connection = DriverManager.getConnection( DataConnection.stringDB, 
+                    DataConnection.user,DataConnection.pass );
+            
+            String sqlDELETE = "DELETE FROM usuariocomparar WHERE UsuarioId = " + DataConnection.userId + " AND VentiladorID = " + id;
+            PreparedStatement statementDELETE = connection.prepareStatement( sqlDELETE );
+            int rowCount = statementDELETE.executeUpdate();
+             
+            value = rowCount > 0;
+            
+            connection.close();
+        }
+          catch ( Exception ex )
+        {
+          ex.printStackTrace();
+        }
+        
+        return value;
     }
 }
