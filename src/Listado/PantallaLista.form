@@ -57,7 +57,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[1280, 920]"/>
+              <Dimension value="[1280, 720]"/>
             </Property>
           </Properties>
 
@@ -65,12 +65,12 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="barraBotones1" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="panelFiltro1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="barraBotones1" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jPanelFilter" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                               <Component id="jScrollPane2" min="-2" pref="756" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -84,8 +84,8 @@
                       <Component id="barraBotones1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="panelFiltro1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jScrollPane2" min="-2" pref="511" max="-2" attributes="0"/>
+                          <Component id="jPanelFilter" min="-2" max="-2" attributes="0"/>
+                          <Component id="jScrollPane2" min="-2" pref="1301" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -93,8 +93,6 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="proyectosemestral.Paneles.PanelFiltro" name="panelFiltro1">
-            </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane2">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -112,6 +110,9 @@
                         <Column editable="true" title="Title 4" type="java.lang.Object"/>
                       </Table>
                     </Property>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[400, 80]"/>
+                    </Property>
                   </Properties>
                   <Events>
                     <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTable1MousePressed"/>
@@ -121,6 +122,128 @@
             </Container>
             <Component class="proyectosemestral.Paneles.BarraBotones" name="barraBotones1">
             </Component>
+            <Container class="javax.swing.JPanel" name="jPanelFilter">
+
+              <Layout>
+                <DimensionLayout dim="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="checkboxFilter1" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="dropdownFilter2" max="32767" attributes="0"/>
+                                  <Component id="dropdownFilter3" max="32767" attributes="0"/>
+                                  <Component id="searchFilter2" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jButtonSearch" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="dropdownFilter4" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="dropdownFilter5" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="dropdownFilter1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="searchFilter1" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Component id="checkboxFilter2" min="-2" max="-2" attributes="0"/>
+                              <Component id="searchFilter3" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="searchFilter4" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="searchFilter5" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="searchFilter6" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="dropdownFilter6" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonSearch1" alignment="1" min="-2" pref="400" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+                <DimensionLayout dim="1">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jButtonSearch" min="-2" pref="33" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="searchFilter1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="dropdownFilter1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="dropdownFilter2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="dropdownFilter3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="searchFilter2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="dropdownFilter4" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="dropdownFilter5" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="checkboxFilter1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="checkboxFilter2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="searchFilter3" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="searchFilter4" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="searchFilter5" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="searchFilter6" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="dropdownFilter6" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="jButtonSearch1" min="-2" pref="33" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="126" max="32767" attributes="0"/>
+                      </Group>
+                  </Group>
+                </DimensionLayout>
+              </Layout>
+              <SubComponents>
+                <Component class="javax.swing.JButton" name="jButtonSearch">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="b2" green="6a" red="1f" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="BUSCAR"/>
+                  </Properties>
+                </Component>
+                <Component class="FiltroPanels.SearchFilter" name="searchFilter1">
+                </Component>
+                <Component class="FiltroPanels.DropdownFilter" name="dropdownFilter1">
+                </Component>
+                <Component class="FiltroPanels.DropdownFilter" name="dropdownFilter2">
+                </Component>
+                <Component class="FiltroPanels.DropdownFilter" name="dropdownFilter3">
+                </Component>
+                <Component class="FiltroPanels.SearchFilter" name="searchFilter2">
+                </Component>
+                <Component class="FiltroPanels.DropdownFilter" name="dropdownFilter4">
+                </Component>
+                <Component class="FiltroPanels.DropdownFilter" name="dropdownFilter5">
+                </Component>
+                <Component class="FiltroPanels.CheckboxFilter" name="checkboxFilter1">
+                </Component>
+                <Component class="FiltroPanels.CheckboxFilter" name="checkboxFilter2">
+                </Component>
+                <Component class="FiltroPanels.SearchFilter" name="searchFilter3">
+                </Component>
+                <Component class="FiltroPanels.SearchFilter" name="searchFilter4">
+                </Component>
+                <Component class="FiltroPanels.SearchFilter" name="searchFilter5">
+                </Component>
+                <Component class="FiltroPanels.SearchFilter" name="searchFilter6">
+                </Component>
+                <Component class="FiltroPanels.DropdownFilter" name="dropdownFilter6">
+                </Component>
+                <Component class="javax.swing.JButton" name="jButtonSearch1">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="b2" green="6a" red="1f" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="BUSCAR"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
           </SubComponents>
         </Container>
       </SubComponents>
