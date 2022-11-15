@@ -106,7 +106,7 @@ public class PantallaCreacion extends javax.swing.JFrame {
                 jCodigoEquipoField.jTextField.getText(),
                 (String)jCategoriaEquipoField.jComboBox.getSelectedItem(),
                 Integer.valueOf((String)jCapacidadField.jComboBox.getSelectedItem()),
-                (String)jCategoriaEquipoField.jComboBox.getSelectedItem(),
+                (String)jTipoEquipoField.jComboBox.getSelectedItem(),
                 Integer.valueOf(jEspacioMaximoField.jTextField.getText()),
                 jMarcaEquipoField.jTextField.getText(),
                 jModeloEquipoField.jTextField.getText(),
@@ -124,7 +124,7 @@ public class PantallaCreacion extends javax.swing.JFrame {
                 jCodigoEquipoField.jTextField.setText("");
                 jCategoriaEquipoField.jComboBox.setSelectedIndex(0);
                 jCapacidadField.jComboBox.setSelectedIndex(0);
-                jCategoriaEquipoField.jComboBox.setSelectedIndex(0);
+                jTipoEquipoField.jComboBox.setSelectedIndex(0);
                 jEspacioMaximoField.jTextField.setText("");
                 jMarcaEquipoField.jTextField.setText("");
                 jModeloEquipoField.jTextField.setText("");
