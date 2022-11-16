@@ -71,13 +71,6 @@ public class PantallaCreacion extends javax.swing.JFrame {
         });
         barraPanelCreacion1.jContinueButton.setEnabled(false);
         barraPanelCreacion1.jContinueButton.addActionListener((ActionEvent e) -> {
-            
-            System.out.println("verificar");
-            System.out.println(espacioMaximoOK);
-            System.out.println(anchoOK);
-            System.out.println(altoOK);
-            System.out.println(precioOK);
-            
             if(!espacioMaximoOK || !anchoOK || !altoOK || !precioOK){
                 String msjError = "Los campos de ";
                 if(!espacioMaximoOK){
@@ -101,7 +94,6 @@ public class PantallaCreacion extends javax.swing.JFrame {
                 return;
             }
             
-            System.out.println("create ventilador");
             Ventilador v = new Ventilador(
                 jCodigoEquipoField.jTextField.getText(),
                 (String)jCategoriaEquipoField.jComboBox.getSelectedItem(),

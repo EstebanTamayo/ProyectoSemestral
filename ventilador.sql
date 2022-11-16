@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2022 at 01:03 AM
+-- Generation Time: Nov 16, 2022 at 02:47 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -113,7 +113,7 @@ CREATE TABLE `usuariocomparar` (
 --
 
 INSERT INTO `usuariocomparar` (`UsuarioId`, `VentiladorID`) VALUES
-(1, 0);
+(1, 1);
 
 -- --------------------------------------------------------
 
@@ -143,15 +143,16 @@ INSERT INTO `usuariofavorito` (`UsuarioId`, `VentiladorID`, `Favorito`) VALUES
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
   `usuario` varchar(255) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `role` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `usuario`, `password`) VALUES
-(1, 'admin', '123');
+INSERT INTO `usuarios` (`id`, `usuario`, `password`, `role`) VALUES
+(1, 'admin', '123', 'A');
 
 -- --------------------------------------------------------
 
@@ -183,7 +184,7 @@ CREATE TABLE `ventiladores` (
 
 INSERT INTO `ventiladores` (`id`, `codigo`, `categoria`, `capacidad`, `TipoEquipo`, `EspacioMaximo`, `marca`, `modelo`, `ControlRemoto`, `Instalacion`, `precio`, `ancho`, `alto`, `descripcion`, `refrigerante`) VALUES
 (0, 'fdhd', 'c1', 5000, 'c1', 5, 'fdhd', 'hdh', b'1', b'0', 5, 5, 5, 'thert', 't1'),
-(1, 'wgegwe', 'c1', 10000, 'c1', 4, 'egew', 'ewgwe', b'1', b'0', 4, 4, 4, 'rege', 't1');
+(15, 'qwfwq', 'c1', 10000, 'tt2', 33, 'qwfdqw', 'qwfqw', b'1', b'0', 3, 3, 3, 'fwf', 't1');
 
 --
 -- Indexes for dumped tables
@@ -263,7 +264,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT for table `ventiladores`
 --
 ALTER TABLE `ventiladores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

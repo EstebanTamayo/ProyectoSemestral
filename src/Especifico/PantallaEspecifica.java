@@ -27,6 +27,7 @@ public class PantallaEspecifica extends javax.swing.JFrame {
     public PantallaEspecifica() {
         itemDisplayController = new ItemDisplayController(this);
         initComponents();
+        jScrollPane1.getVerticalScrollBar().setUnitIncrement(16);
         barraBotones1.setPadre(this);
     }
 
@@ -106,9 +107,10 @@ public class PantallaEspecifica extends javax.swing.JFrame {
         jScrollPane1.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(1280, 1100));
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(1280, 900));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1280, 900));
 
         ImageSection.setBackground(new java.awt.Color(255, 255, 255));
         ImageSection.setPreferredSize(new java.awt.Dimension(400, 400));
@@ -237,7 +239,7 @@ public class PantallaEspecifica extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jButtonComparar, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addComponent(jButtonFavoritos)
                 .addGap(29, 29, 29))
         );
@@ -322,7 +324,7 @@ public class PantallaEspecifica extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(DescripcionSection, javax.swing.GroupLayout.DEFAULT_SIZE, 874, Short.MAX_VALUE))
                         .addComponent(LineaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 1387, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -336,8 +338,8 @@ public class PantallaEspecifica extends javax.swing.JFrame {
                 .addComponent(LineaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(EspecificationSection, javax.swing.GroupLayout.PREFERRED_SIZE, 217, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)))
+                    .addComponent(EspecificationSection, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)))
         );
 
         jScrollPane1.setViewportView(jPanel1);
@@ -350,7 +352,7 @@ public class PantallaEspecifica extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 835, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
         );
 
         pack();

@@ -26,80 +26,46 @@ public class BannerInfo extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        TitleSection = new javax.swing.JPanel();
         jTitleLabel = new javax.swing.JLabel();
-        InfoSection = new javax.swing.JPanel();
         infoPanelCount = new proyectosemestral.Paneles.InfoPanel();
         infoPanelInstalacion = new proyectosemestral.Paneles.InfoPanel();
 
         setBackground(new java.awt.Color(31, 106, 178));
         setPreferredSize(new java.awt.Dimension(1280, 300));
 
-        TitleSection.setBackground(new java.awt.Color(31, 106, 178));
-
-        jTitleLabel.setText("title");
-
-        javax.swing.GroupLayout TitleSectionLayout = new javax.swing.GroupLayout(TitleSection);
-        TitleSection.setLayout(TitleSectionLayout);
-        TitleSectionLayout.setHorizontalGroup(
-            TitleSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TitleSectionLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTitleLabel)
-                .addGap(621, 621, 621))
-        );
-        TitleSectionLayout.setVerticalGroup(
-            TitleSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(TitleSectionLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jTitleLabel)
-                .addContainerGap(38, Short.MAX_VALUE))
-        );
-
-        InfoSection.setBackground(new java.awt.Color(31, 106, 178));
-
-        javax.swing.GroupLayout InfoSectionLayout = new javax.swing.GroupLayout(InfoSection);
-        InfoSection.setLayout(InfoSectionLayout);
-        InfoSectionLayout.setHorizontalGroup(
-            InfoSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, InfoSectionLayout.createSequentialGroup()
-                .addContainerGap(460, Short.MAX_VALUE)
-                .addComponent(infoPanelCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(infoPanelInstalacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(446, 446, 446))
-        );
-        InfoSectionLayout.setVerticalGroup(
-            InfoSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(InfoSectionLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(InfoSectionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(infoPanelInstalacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(infoPanelCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(25, Short.MAX_VALUE))
-        );
+        jTitleLabel.setText("texto");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(TitleSection, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(InfoSection, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(618, 618, 618)
+                        .addComponent(jTitleLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(449, 449, 449)
+                        .addComponent(infoPanelCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(infoPanelInstalacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(463, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(TitleSection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(InfoSection, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addGap(20, 20, 20)
+                .addComponent(jTitleLabel)
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(infoPanelCount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(infoPanelInstalacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 14, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel InfoSection;
-    public javax.swing.JPanel TitleSection;
     public proyectosemestral.Paneles.InfoPanel infoPanelCount;
     public proyectosemestral.Paneles.InfoPanel infoPanelInstalacion;
     public javax.swing.JLabel jTitleLabel;

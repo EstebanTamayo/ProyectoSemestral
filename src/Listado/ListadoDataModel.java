@@ -4,6 +4,7 @@
  */
 package Listado;
 
+import Entidades.Ventilador;
 import Entidades.VentiladorItemDTO;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -42,6 +43,58 @@ public class ListadoDataModel {
                         resultSet.getInt(6)
                     )
                 );
+            }
+            
+            connection.close();
+        }
+          catch ( Exception ex )
+        {
+          ex.printStackTrace();
+        }
+        
+        return lista;
+    }
+    
+    public ArrayList<Ventilador> getVentiladorFilter(String filter){
+        ArrayList<Ventilador> lista = new ArrayList<Ventilador>();
+        
+          
+        try{
+            String sql = "SELECT codigo, categoria, capacidad, TipoEquipo, EspacioMaximo, marca, modelo, ControlRemoto, Instalacion, precio, ancho, alto, descripcion, refrigerante FROM Ventiladores WHERE " + filter;
+            System.out.println(sql);
+            Connection connection = DriverManager.getConnection( DataConnection.stringDB, 
+                    DataConnection.user,DataConnection.pass );
+
+            Statement statement = connection.prepareStatement( sql );
+            ResultSet resultSet = statement.executeQuery( sql );
+
+            if(resultSet.next()){
+                System.out.println("hay");
+            }
+            else{
+                System.out.println("no hay");
+            }
+            
+            while( resultSet.next() )
+            {   
+                lista.add(new Ventilador(
+                    resultSet.getString(1),
+                    resultSet.getString(2),
+                        
+                    resultSet.getInt(3),
+                    resultSet.getString(4),
+                    resultSet.getInt(5),
+                    resultSet.getString(6),
+                    resultSet.getString(7),
+                        
+                    resultSet.getBoolean(8),
+                    resultSet.getBoolean(9),
+                    resultSet.getInt(10),
+                    resultSet.getInt(11),
+                    resultSet.getInt(12),
+                    resultSet.getString(13),
+                    resultSet.getString(14)
+                ));
             }
             
             connection.close();

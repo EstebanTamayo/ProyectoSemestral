@@ -28,7 +28,7 @@ public class CheckboxFilter extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabelText = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        jCheckBox = new javax.swing.JCheckBox();
 
         jLabelText.setText("texto");
 
@@ -40,7 +40,7 @@ public class CheckboxFilter extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jLabelText, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addComponent(jCheckBox1)
+                .addComponent(jCheckBox)
                 .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
@@ -49,14 +49,14 @@ public class CheckboxFilter extends javax.swing.JPanel {
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelText)
-                    .addComponent(jCheckBox1))
+                    .addComponent(jCheckBox))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox jCheckBox1;
+    public javax.swing.JCheckBox jCheckBox;
     public javax.swing.JLabel jLabelText;
     // End of variables declaration//GEN-END:variables
 }

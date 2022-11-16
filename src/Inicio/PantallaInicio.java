@@ -30,6 +30,7 @@ public class PantallaInicio extends javax.swing.JFrame {
         inicioController = new InicioController(this);
         
         initComponents();
+        jScrollPane1.getVerticalScrollBar().setUnitIncrement(16);
         
         barraBotones1.setPadre(this);
         
@@ -41,6 +42,7 @@ public class PantallaInicio extends javax.swing.JFrame {
                 ventiladorDTO.getPrecio().toString()
             });
         }
+        
         bannerInfo1.jTitleLabel.setText("Tienda");
         
         bannerInfo1.infoPanelCount.jTitleLabel.setText("Cantidad de aires acondicionados");
@@ -62,26 +64,17 @@ public class PantallaInicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane2 = new javax.swing.JScrollPane();
         bg = new javax.swing.JPanel();
-        bannerInfo1 = new proyectosemestral.Paneles.BannerInfo();
-        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         barraBotones1 = new proyectosemestral.Paneles.BarraBotones();
+        bannerInfo1 = new proyectosemestral.Paneles.BannerInfo();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        jScrollPane2.setPreferredSize(new java.awt.Dimension(1280, 2200));
-
         bg.setBackground(new java.awt.Color(255, 255, 255));
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        bg.add(bannerInfo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, -1, -1));
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -101,35 +94,23 @@ public class PantallaInicio extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1280, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        bg.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 500, 1280, 280));
-        bg.add(barraBotones1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        jScrollPane2.setViewportView(bg);
+        bg.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 1280, 340));
+        bg.add(barraBotones1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, -1));
+        bg.add(bannerInfo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, -1, 190));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
+                .addComponent(bg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -173,9 +154,7 @@ public class PantallaInicio extends javax.swing.JFrame {
     private proyectosemestral.Paneles.BannerInfo bannerInfo1;
     private proyectosemestral.Paneles.BarraBotones barraBotones1;
     private javax.swing.JPanel bg;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

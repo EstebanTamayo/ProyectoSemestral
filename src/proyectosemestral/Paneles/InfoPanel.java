@@ -32,32 +32,33 @@ public class InfoPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(51, 51, 51));
 
         jTitleLabel.setText("titulo");
+        jTitleLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jDescLabel.setForeground(new java.awt.Color(153, 153, 153));
         jDescLabel.setText("descripcion");
+        jDescLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addComponent(jTitleLabel))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(jDescLabel)))
+                .addGap(57, 57, 57)
+                .addComponent(jDescLabel)
                 .addContainerGap(57, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTitleLabel)
+                .addGap(72, 72, 72))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addContainerGap()
                 .addComponent(jTitleLabel)
-                .addGap(52, 52, 52)
+                .addGap(42, 42, 42)
                 .addComponent(jDescLabel)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

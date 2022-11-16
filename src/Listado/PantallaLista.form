@@ -45,7 +45,7 @@
         <Property name="horizontalScrollBarPolicy" type="int" value="31"/>
         <Property name="verticalScrollBarPolicy" type="int" value="22"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[1280, 2200]"/>
+          <Dimension value="[1280, 1600]"/>
         </Property>
       </Properties>
 
@@ -57,24 +57,49 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[1280, 720]"/>
+              <Dimension value="[1280, 1600]"/>
             </Property>
           </Properties>
 
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="barraBotones1" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jPanelFilter" max="32767" attributes="0"/>
-                              <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                              <Component id="jScrollPane2" min="-2" pref="756" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="controlRemooCheckboxFilter" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="capacidadDropdownFilter" pref="506" max="32767" attributes="0"/>
+                                          <Component id="tipoEquipoDropdownFilter" max="32767" attributes="0"/>
+                                          <Component id="espacioMaximoSearchFilter" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jButtonSearchSuperior" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="marcaDropdownFilter" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="modeloDropdownFilter" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="categoriaDropdownFilter" max="32767" attributes="0"/>
+                                          <Component id="codigoSearchFilter" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                      <Component id="instalacionCheckboxFilter" min="-2" max="-2" attributes="0"/>
+                                      <Component id="precioMinSearchFilter" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="precioMaxSearchFilter" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="anchoSearchFilter" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="altoSearchFilter" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="refrigeranteDropdownFilter" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButtonSearchInferior" alignment="1" min="-2" pref="400" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jScrollPane2" max="32767" attributes="0"/>
                           </Group>
+                          <Component id="barraBotones1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="509" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="5" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -84,10 +109,45 @@
                       <Component id="barraBotones1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jPanelFilter" min="-2" max="-2" attributes="0"/>
-                          <Component id="jScrollPane2" min="-2" pref="1301" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jButtonSearchSuperior" min="-2" pref="33" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="codigoSearchFilter" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="categoriaDropdownFilter" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="capacidadDropdownFilter" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="tipoEquipoDropdownFilter" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="espacioMaximoSearchFilter" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="marcaDropdownFilter" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="modeloDropdownFilter" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="controlRemooCheckboxFilter" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="instalacionCheckboxFilter" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="precioMinSearchFilter" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="precioMaxSearchFilter" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="anchoSearchFilter" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="altoSearchFilter" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="refrigeranteDropdownFilter" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jButtonSearchInferior" min="-2" pref="33" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jScrollPane2" alignment="0" min="-2" pref="1341" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="42" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -122,128 +182,67 @@
             </Container>
             <Component class="proyectosemestral.Paneles.BarraBotones" name="barraBotones1">
             </Component>
-            <Container class="javax.swing.JPanel" name="jPanelFilter">
-
-              <Layout>
-                <DimensionLayout dim="0">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="checkboxFilter1" min="-2" max="-2" attributes="0"/>
-                              <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="dropdownFilter2" max="32767" attributes="0"/>
-                                  <Component id="dropdownFilter3" max="32767" attributes="0"/>
-                                  <Component id="searchFilter2" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jButtonSearch" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="dropdownFilter4" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="dropdownFilter5" alignment="1" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="dropdownFilter1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="searchFilter1" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Component id="checkboxFilter2" min="-2" max="-2" attributes="0"/>
-                              <Component id="searchFilter3" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="searchFilter4" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="searchFilter5" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="searchFilter6" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="dropdownFilter6" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="jButtonSearch1" alignment="1" min="-2" pref="400" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-                <DimensionLayout dim="1">
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jButtonSearch" min="-2" pref="33" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="searchFilter1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="dropdownFilter1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="dropdownFilter2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="dropdownFilter3" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="searchFilter2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="dropdownFilter4" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="dropdownFilter5" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="checkboxFilter1" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="checkboxFilter2" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="searchFilter3" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="searchFilter4" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="searchFilter5" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="searchFilter6" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="dropdownFilter6" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jButtonSearch1" min="-2" pref="33" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="126" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                </DimensionLayout>
-              </Layout>
-              <SubComponents>
-                <Component class="javax.swing.JButton" name="jButtonSearch">
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="b2" green="6a" red="1f" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="BUSCAR"/>
-                  </Properties>
-                </Component>
-                <Component class="FiltroPanels.SearchFilter" name="searchFilter1">
-                </Component>
-                <Component class="FiltroPanels.DropdownFilter" name="dropdownFilter1">
-                </Component>
-                <Component class="FiltroPanels.DropdownFilter" name="dropdownFilter2">
-                </Component>
-                <Component class="FiltroPanels.DropdownFilter" name="dropdownFilter3">
-                </Component>
-                <Component class="FiltroPanels.SearchFilter" name="searchFilter2">
-                </Component>
-                <Component class="FiltroPanels.DropdownFilter" name="dropdownFilter4">
-                </Component>
-                <Component class="FiltroPanels.DropdownFilter" name="dropdownFilter5">
-                </Component>
-                <Component class="FiltroPanels.CheckboxFilter" name="checkboxFilter1">
-                </Component>
-                <Component class="FiltroPanels.CheckboxFilter" name="checkboxFilter2">
-                </Component>
-                <Component class="FiltroPanels.SearchFilter" name="searchFilter3">
-                </Component>
-                <Component class="FiltroPanels.SearchFilter" name="searchFilter4">
-                </Component>
-                <Component class="FiltroPanels.SearchFilter" name="searchFilter5">
-                </Component>
-                <Component class="FiltroPanels.SearchFilter" name="searchFilter6">
-                </Component>
-                <Component class="FiltroPanels.DropdownFilter" name="dropdownFilter6">
-                </Component>
-                <Component class="javax.swing.JButton" name="jButtonSearch1">
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="b2" green="6a" red="1f" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="BUSCAR"/>
-                  </Properties>
-                </Component>
-              </SubComponents>
-            </Container>
+            <Component class="javax.swing.JButton" name="jButtonSearchSuperior">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="b2" green="6a" red="1f" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="BUSCAR"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSearchSuperiorActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="FiltroPanels.SearchFilter" name="codigoSearchFilter">
+            </Component>
+            <Component class="FiltroPanels.DropdownFilter" name="categoriaDropdownFilter">
+            </Component>
+            <Component class="FiltroPanels.DropdownFilter" name="capacidadDropdownFilter">
+            </Component>
+            <Component class="FiltroPanels.DropdownFilter" name="tipoEquipoDropdownFilter">
+            </Component>
+            <Component class="FiltroPanels.SearchFilter" name="espacioMaximoSearchFilter">
+            </Component>
+            <Component class="FiltroPanels.DropdownFilter" name="marcaDropdownFilter">
+            </Component>
+            <Component class="FiltroPanels.DropdownFilter" name="modeloDropdownFilter">
+            </Component>
+            <Component class="FiltroPanels.CheckboxFilter" name="controlRemooCheckboxFilter">
+            </Component>
+            <Component class="FiltroPanels.CheckboxFilter" name="instalacionCheckboxFilter">
+            </Component>
+            <Component class="FiltroPanels.SearchFilter" name="precioMinSearchFilter">
+            </Component>
+            <Component class="FiltroPanels.SearchFilter" name="precioMaxSearchFilter">
+            </Component>
+            <Component class="FiltroPanels.SearchFilter" name="anchoSearchFilter">
+            </Component>
+            <Component class="FiltroPanels.SearchFilter" name="altoSearchFilter">
+            </Component>
+            <Component class="FiltroPanels.DropdownFilter" name="refrigeranteDropdownFilter">
+            </Component>
+            <Component class="javax.swing.JButton" name="jButtonSearchInferior">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="b2" green="6a" red="1f" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="BUSCAR"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSearchInferiorActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabel1">
+              <Properties>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Segoe UI" size="24" style="0"/>
+                </Property>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="33" green="33" red="33" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Filtros"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>

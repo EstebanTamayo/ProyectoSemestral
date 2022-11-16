@@ -4,6 +4,7 @@
  */
 package Listado;
 
+import Entidades.Ventilador;
 import Entidades.VentiladorItemDTO;
 import Especifico.PantallaEspecifica;
 import java.util.ArrayList;
@@ -25,7 +26,7 @@ public class ListadoController {
         return listadoDataModel.getVentiladoresItems();
     }
 
-    void GoItem(int row) {
+    public void GoItem(int row) {
         PantallaEspecifica p = new PantallaEspecifica();
         p.setIndex(row);
         p.setVisible(true);
@@ -34,5 +35,9 @@ public class ListadoController {
 
     public boolean deleteItem(int id) {
         return listadoDataModel.deleteItem(id);
+    }
+    
+    public ArrayList<Ventilador> getVentiladorFilter(String filter){
+        return listadoDataModel.getVentiladorFilter(filter);
     }
 }
