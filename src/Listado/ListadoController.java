@@ -4,6 +4,11 @@
  */
 package Listado;
 
+import Creacion.CreationDataModel;
+import Entidades.Capacidad;
+import Entidades.Categoria;
+import Entidades.Refrigerante;
+import Entidades.TipoEquipo;
 import Entidades.Ventilador;
 import Entidades.VentiladorItemDTO;
 import Especifico.PantallaEspecifica;
@@ -16,6 +21,7 @@ import java.util.ArrayList;
 public class ListadoController {
     
     private ListadoDataModel listadoDataModel = new ListadoDataModel();
+    private CreationDataModel creationDataModel = new CreationDataModel();
     private PantallaLista view;
 
     public ListadoController(PantallaLista view) {
@@ -39,5 +45,29 @@ public class ListadoController {
     
     public ArrayList<Ventilador> getVentiladorFilter(String filter){
         return listadoDataModel.getVentiladorFilter(filter);
+    }
+    
+    public ArrayList<TipoEquipo> getTipoEquipos(){
+        return creationDataModel.getTipoEquipos();
+    }
+    
+    public ArrayList<Categoria> getCategorias(){
+        return creationDataModel.getCategorias();
+    }
+    
+    public ArrayList<Refrigerante> getRefrigerantes() {
+        return creationDataModel.getRefrigerantes();
+    }
+    
+    public ArrayList<Capacidad> getCapacidades() {
+        return creationDataModel.getCapacidades();
+    }
+    
+    public ArrayList<String> getModelos(){
+        return listadoDataModel.getModelos();
+    }
+    
+    public ArrayList<String> getMarcas(){
+        return listadoDataModel.getMarcas();
     }
 }

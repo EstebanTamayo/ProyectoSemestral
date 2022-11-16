@@ -4,6 +4,7 @@
  */
 package Listado;
 
+import Entidades.TipoEquipo;
 import Entidades.Ventilador;
 import Entidades.VentiladorItemDTO;
 import java.sql.Connection;
@@ -129,5 +130,59 @@ public class ListadoDataModel {
         }
         
         return value;
+    }
+    
+    public ArrayList<String> getMarcas(){
+        
+        ArrayList<String> lista = new ArrayList<>();
+        
+        try{
+            String sql = "SELECT marca FROM ventiladores";
+            Connection connection = DriverManager.getConnection( DataConnection.stringDB, 
+                    DataConnection.user,DataConnection.pass );
+
+            Statement statement = connection.prepareStatement( sql );
+            ResultSet resultSet = statement.executeQuery( sql );
+
+            while( resultSet.next() )
+            {
+                lista.add(resultSet.getString(1));
+            }
+
+            connection.close();
+        }
+          catch ( Exception ex )
+        {
+          ex.printStackTrace();
+        }
+        
+        return lista;
+    }
+    
+    public ArrayList<String> getModelos(){
+        
+        ArrayList<String> lista = new ArrayList<>();
+        
+        try{
+            String sql = "SELECT modelo FROM ventiladores";
+            Connection connection = DriverManager.getConnection( DataConnection.stringDB, 
+                    DataConnection.user,DataConnection.pass );
+
+            Statement statement = connection.prepareStatement( sql );
+            ResultSet resultSet = statement.executeQuery( sql );
+
+            while( resultSet.next() )
+            {
+                lista.add(resultSet.getString(1));
+            }
+
+            connection.close();
+        }
+          catch ( Exception ex )
+        {
+          ex.printStackTrace();
+        }
+        
+        return lista;
     }
 }

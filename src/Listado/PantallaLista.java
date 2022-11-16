@@ -4,20 +4,26 @@
  */
 package Listado;
 
+import Entidades.Capacidad;
+import Entidades.Categoria;
+import Entidades.Refrigerante;
+import Entidades.TipoEquipo;
 import Entidades.Ventilador;
 import Entidades.VentiladorItemDTO;
+import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.InputMethodEvent;
-import java.awt.event.InputMethodListener;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import proyectosemestral.DataConnection;
@@ -34,6 +40,8 @@ public class PantallaLista extends javax.swing.JFrame {
     private ArrayList<VentiladorItemDTO> lista   = new ArrayList<>();
     private String columSearch = "";
     private String whereText = "";
+    private ArrayList<JPanel> panels   = new ArrayList<>();
+    private JPanel selectedPanel;
     
     /**
      * Creates new form PantallaLista
@@ -58,26 +66,41 @@ public class PantallaLista extends javax.swing.JFrame {
             });
         }
         
-        //TODO: traer de bdd opciones a dropdown categoria,capacidad,refrigerante,tipo equipo, marca, modelo
         //TODO: ver que funcione mayor que precio, menor que precio y lo mismo para espacio,alto,ancho
         
         DefaultTableModel model  = new DefaultTableModel( data.stream().toArray(String[][]::new), colums );
         jTable1.setModel( model );
         
-        categoriaDropdownFilter.jLabelText.setText("Categoria");
-        capacidadDropdownFilter.jLabelText.setText("Capacidad");
+        
         codigoSearchFilter.jLabelText.setText("Codigo");
-        controlRemooCheckboxFilter.jLabelText.setText("Control Remoto");
         espacioMaximoSearchFilter.jLabelText.setText("Espacio Maximo");
-        instalacionCheckboxFilter.jLabelText.setText("Instalacion");
-        marcaDropdownFilter.jLabelText.setText("Marca");
-        modeloDropdownFilter.jLabelText.setText("Modelo");
         precioMaxSearchFilter.jLabelText.setText("Precio Minimo");
         precioMinSearchFilter.jLabelText.setText("Precio Maximo");
-        refrigeranteDropdownFilter.jLabelText.setText("Refrigerante");
-        tipoEquipoDropdownFilter.jLabelText.setText("Tipo Equipo");
         altoSearchFilter.jLabelText.setText("Alto");
         anchoSearchFilter.jLabelText.setText("Ancho");
+        controlRemooCheckboxFilter.jLabelText.setText("Control Remoto");
+        instalacionCheckboxFilter.jLabelText.setText("Instalacion");
+        categoriaDropdownFilter.jLabelText.setText("Categoria");
+        capacidadDropdownFilter.jLabelText.setText("Capacidad");
+        marcaDropdownFilter.jLabelText.setText("Marca");
+        modeloDropdownFilter.jLabelText.setText("Modelo");
+        refrigeranteDropdownFilter.jLabelText.setText("Refrigerante");
+        tipoEquipoDropdownFilter.jLabelText.setText("Tipo Equipo");
+        
+        panels.add(codigoSearchFilter);
+        panels.add(espacioMaximoSearchFilter);
+        panels.add(precioMaxSearchFilter);
+        panels.add(precioMinSearchFilter);
+        panels.add(altoSearchFilter);
+        panels.add(anchoSearchFilter);
+        panels.add(controlRemooCheckboxFilter);
+        panels.add(instalacionCheckboxFilter);
+        panels.add(categoriaDropdownFilter);
+        panels.add(capacidadDropdownFilter);
+        panels.add(marcaDropdownFilter);
+        panels.add(modeloDropdownFilter);
+        panels.add(refrigeranteDropdownFilter);
+        panels.add(tipoEquipoDropdownFilter);
         
         capacidadDropdownFilter.jComboBox.addItemListener((ItemEvent e) -> {
             
@@ -144,6 +167,25 @@ public class PantallaLista extends javax.swing.JFrame {
             }
         });
         
+        espacioMaximoSearchFilter.jTextField.addFocusListener(new FocusListener() {
+            @Override
+            public void focusGained(FocusEvent e) {
+                
+            }
+
+            @Override
+            public void focusLost(FocusEvent e) {
+                
+                try{
+                    int value = Integer.valueOf(espacioMaximoSearchFilter.jTextField.getText());
+                    if(value < 0) return;
+                    System.out.println("es numero");
+                }
+                catch(Exception ex){
+                    JOptionPane.showMessageDialog(null, "En el campo Espacio Maximo, ingrese solo numeros", "Error", 0);
+                }
+            }
+        });
         espacioMaximoSearchFilter.jTextField.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
@@ -258,6 +300,38 @@ public class PantallaLista extends javax.swing.JFrame {
             resetFilters();
             instalacionCheckboxFilter.jCheckBox.setSelected(temp);
         });
+        
+        for (Categoria categoria : listadoController.getCategorias()) {
+            categoriaDropdownFilter.jComboBox.addItem(categoria.getDescripcion());
+        }
+        
+//        categoriaDropdownFilter.jComboBox.addItemListener((ItemEvent e) -> {
+//            if(categoriaDropdownFilter.jComboBox.getSelectedIndex() == 0) return;
+//            categoriaDropdownFilter.jComboBox.setForeground(
+//                categoriaDropdownFilter.jComboBox.getSelectedIndex() != 0 ?
+//                new Color(51,51,51) : new Color(153,153,153)
+//            );
+//        });
+
+        for (Capacidad capacidad : listadoController.getCapacidades()) {
+            capacidadDropdownFilter.jComboBox.addItem(capacidad.getCapacidad().toString());
+        }
+        
+        for (Refrigerante refrigerante : listadoController.getRefrigerantes()) {
+            refrigeranteDropdownFilter.jComboBox.addItem(refrigerante.getName());
+        }
+       
+        for (TipoEquipo tipoEquipo : listadoController.getTipoEquipos()) {
+            tipoEquipoDropdownFilter.jComboBox.addItem(tipoEquipo.getName());
+        }
+        
+        for (String marca : listadoController.getMarcas()) {
+            marcaDropdownFilter.jComboBox.addItem(marca);
+        }
+                
+        for (String modelo : listadoController.getModelos()) {
+            modeloDropdownFilter.jComboBox.addItem(modelo);
+        }
     }
 
     private void updateTableModel(){
@@ -531,7 +605,7 @@ public class PantallaLista extends javax.swing.JFrame {
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
           try {
-    UIManager.setLookAndFeel( new FlatLightLaf() );
+    UIManager.setLookAndFeel( new FlatLightLaf());
 } catch( Exception ex ) {
     System.err.println( "Failed to initialize LaF" );
 }
