@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 16, 2022 at 02:47 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 18-11-2022 a las 00:37:59
+-- Versión del servidor: 10.4.25-MariaDB
+-- Versión de PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ventilador`
+-- Base de datos: `ventilador`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `capacidad`
+-- Estructura de tabla para la tabla `capacidad`
 --
 
 CREATE TABLE `capacidad` (
@@ -33,17 +33,19 @@ CREATE TABLE `capacidad` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `capacidad`
+-- Volcado de datos para la tabla `capacidad`
 --
 
 INSERT INTO `capacidad` (`id`, `capacidad`) VALUES
-(1, 5000),
-(2, 10000);
+(1, 9000),
+(2, 12000),
+(3, 18000),
+(4, 24000);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categoriaequipo`
+-- Estructura de tabla para la tabla `categoriaequipo`
 --
 
 CREATE TABLE `categoriaequipo` (
@@ -52,17 +54,17 @@ CREATE TABLE `categoriaequipo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `categoriaequipo`
+-- Volcado de datos para la tabla `categoriaequipo`
 --
 
 INSERT INTO `categoriaequipo` (`id`, `descripcion`) VALUES
-(1, 'c1'),
-(2, 'c2');
+(1, 'Inverter'),
+(2, 'Convencional');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `refrigerantes`
+-- Estructura de tabla para la tabla `refrigerantes`
 --
 
 CREATE TABLE `refrigerantes` (
@@ -71,17 +73,17 @@ CREATE TABLE `refrigerantes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `refrigerantes`
+-- Volcado de datos para la tabla `refrigerantes`
 --
 
 INSERT INTO `refrigerantes` (`id`, `name`) VALUES
-(1, 't1'),
-(2, 't2');
+(1, 'R-410A'),
+(2, 'R-22');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tipoequipo`
+-- Estructura de tabla para la tabla `tipoequipo`
 --
 
 CREATE TABLE `tipoequipo` (
@@ -90,17 +92,19 @@ CREATE TABLE `tipoequipo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tipoequipo`
+-- Volcado de datos para la tabla `tipoequipo`
 --
 
 INSERT INTO `tipoequipo` (`id`, `name`) VALUES
-(1, 'tt1'),
-(2, 'tt2');
+(1, 'Split Muro'),
+(2, 'Split Piso Cielo'),
+(3, 'Split Cassette'),
+(4, 'Split Ducto');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuariocomparar`
+-- Estructura de tabla para la tabla `usuariocomparar`
 --
 
 CREATE TABLE `usuariocomparar` (
@@ -109,7 +113,7 @@ CREATE TABLE `usuariocomparar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `usuariocomparar`
+-- Volcado de datos para la tabla `usuariocomparar`
 --
 
 INSERT INTO `usuariocomparar` (`UsuarioId`, `VentiladorID`) VALUES
@@ -118,7 +122,7 @@ INSERT INTO `usuariocomparar` (`UsuarioId`, `VentiladorID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuariofavorito`
+-- Estructura de tabla para la tabla `usuariofavorito`
 --
 
 CREATE TABLE `usuariofavorito` (
@@ -128,7 +132,7 @@ CREATE TABLE `usuariofavorito` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `usuariofavorito`
+-- Volcado de datos para la tabla `usuariofavorito`
 --
 
 INSERT INTO `usuariofavorito` (`UsuarioId`, `VentiladorID`, `Favorito`) VALUES
@@ -137,7 +141,7 @@ INSERT INTO `usuariofavorito` (`UsuarioId`, `VentiladorID`, `Favorito`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usuarios`
+-- Estructura de tabla para la tabla `usuarios`
 --
 
 CREATE TABLE `usuarios` (
@@ -148,7 +152,7 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `usuarios`
+-- Volcado de datos para la tabla `usuarios`
 --
 
 INSERT INTO `usuarios` (`id`, `usuario`, `password`, `role`) VALUES
@@ -157,7 +161,7 @@ INSERT INTO `usuarios` (`id`, `usuario`, `password`, `role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ventiladores`
+-- Estructura de tabla para la tabla `ventiladores`
 --
 
 CREATE TABLE `ventiladores` (
@@ -179,92 +183,100 @@ CREATE TABLE `ventiladores` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `ventiladores`
+-- Volcado de datos para la tabla `ventiladores`
 --
 
 INSERT INTO `ventiladores` (`id`, `codigo`, `categoria`, `capacidad`, `TipoEquipo`, `EspacioMaximo`, `marca`, `modelo`, `ControlRemoto`, `Instalacion`, `precio`, `ancho`, `alto`, `descripcion`, `refrigerante`) VALUES
-(0, 'fdhd', 'c1', 5000, 'c1', 5, 'fdhd', 'hdh', b'1', b'0', 5, 5, 5, 'thert', 't1'),
-(15, 'qwfwq', 'c1', 10000, 'tt2', 33, 'qwfdqw', 'qwfqw', b'1', b'0', 3, 3, 3, 'fwf', 't1');
+(16, 'K1', 'Convencional', 9000, 'Split Muro', 18, 'Khone', 'CM-09HVAC', b'0', b'0', 386750, 2, 1, 'Equipo de Aire Acondicionado Frio y Calor convencional, sin instalacion incluida, con refrigerante ecologico', 'R-410A'),
+(17, 'K2', 'Convencional', 12000, 'Split Muro', 28, 'Khone', 'CM-12HVAC', b'0', b'0', 409063, 2, 1, 'Equipo de Aire Acondicionado Frio y Calor convencional, sin instalacion incluida, con refrigerante ecologico', 'R-410A'),
+(18, 'K3', 'Convencional', 18000, 'Split Muro', 36, 'Khone', 'CM-18HVAC', b'0', b'0', 610315, 2, 1, 'Equipo de Aire Acondicionado Frio y Calor convencional, sin instalacion incluida', 'R-22'),
+(19, 'K4', 'Inverter', 24000, 'Split Muro', 45, 'Khone', 'IM-24HVAC', b'1', b'1', 1082900, 2, 2, 'Equipo de aire acondicionado Frio y Calor inverter (ahorro energetico), equipo cuenta con refrigerante R-410A lo que lo hace ecologico, equipo cuenta con instalacion incluida y a su vez cuenta con un control remoto inteligente', 'R-410A'),
+(20, 'K5', 'Inverter', 9000, 'Split Piso Cielo', 18, 'Khone', 'IPS-09HVAC', b'1', b'1', 405650, 3, 1, 'Equipo de aire acondicionado tipo inverter, cuenta con control remoto inteligente y con instalacion, equipo Frio y Calor', 'R-410A'),
+(21, 'K6', 'Convencional', 18000, 'Split Piso Cielo', 36, 'Khone', 'CPS-12HVAC', b'0', b'1', 832500, 4, 1, 'Equipo de aire acondicionado Frio y Calor convencional, cuenta con instalacion', 'R-22'),
+(22, 'K7', 'Inverter', 18000, 'Split Cassette', 36, 'Khone', 'IC-18HVAC', b'1', b'1', 812650, 3, 2, 'Equipo de aire acondicionado Frio y Calor Inverter, cuenta con control remoto inteligente, tambien tiene refrigerante ecologico R-410A y cuenta con instalacion', 'R-410A'),
+(23, 'K8', 'Convencional', 24000, 'Split Cassette', 45, 'Khone', 'CC-24HVAC', b'0', b'0', 980000, 3, 2, 'Equipo de aire acondicionado Frio y Calor convencional', 'R-22'),
+(24, 'K9', 'Inverter', 12000, 'Split Ducto', 28, 'Khone', 'ID-12HVAC', b'1', b'0', 590850, 4, 1, 'Equipo de aire acondicionado inverter y ecologico, cuenta con control remoto inteligente', 'R-410A'),
+(25, 'K10', 'Convencional', 18000, 'Split Ducto', 36, 'Khone', 'CD-18HVAC', b'0', b'1', 765000, 3, 2, 'Equipo de aire acondicionado Frio y Calor convencional, viene con instalacion incluida', 'R-22');
 
 --
--- Indexes for dumped tables
+-- Índices para tablas volcadas
 --
 
 --
--- Indexes for table `capacidad`
+-- Indices de la tabla `capacidad`
 --
 ALTER TABLE `capacidad`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `categoriaequipo`
+-- Indices de la tabla `categoriaequipo`
 --
 ALTER TABLE `categoriaequipo`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `refrigerantes`
+-- Indices de la tabla `refrigerantes`
 --
 ALTER TABLE `refrigerantes`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tipoequipo`
+-- Indices de la tabla `tipoequipo`
 --
 ALTER TABLE `tipoequipo`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `usuarios`
+-- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `ventiladores`
+-- Indices de la tabla `ventiladores`
 --
 ALTER TABLE `ventiladores`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT for table `capacidad`
+-- AUTO_INCREMENT de la tabla `capacidad`
 --
 ALTER TABLE `capacidad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `categoriaequipo`
+-- AUTO_INCREMENT de la tabla `categoriaequipo`
 --
 ALTER TABLE `categoriaequipo`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `refrigerantes`
+-- AUTO_INCREMENT de la tabla `refrigerantes`
 --
 ALTER TABLE `refrigerantes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `tipoequipo`
+-- AUTO_INCREMENT de la tabla `tipoequipo`
 --
 ALTER TABLE `tipoequipo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `usuarios`
+-- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `ventiladores`
+-- AUTO_INCREMENT de la tabla `ventiladores`
 --
 ALTER TABLE `ventiladores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
