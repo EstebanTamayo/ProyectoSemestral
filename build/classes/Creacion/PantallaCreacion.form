@@ -35,7 +35,7 @@
           <Group type="102" alignment="1" attributes="0">
               <Component id="barraPanelCreacion1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="613" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="2000" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -68,22 +68,24 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="440" pref="440" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jMarcaEquipoField" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCodigoEquipoField" min="-2" max="-2" attributes="0"/>
-                          <Component id="jModeloEquipoField" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCategoriaEquipoField" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTipoEquipoField" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCapacidadField" min="-2" max="-2" attributes="0"/>
-                          <Component id="jRefrigeranteField" min="-2" max="-2" attributes="0"/>
-                          <Component id="jEspacioMaximoField" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jControlRemotoField" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jInstalacionField" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jPrecioField" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jAnchoField" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jAltoField" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="jDescripcionField" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="jAltoField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jAnchoField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jPrecioField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jInstalacionField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jControlRemotoField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jEspacioMaximoField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jRefrigeranteField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jCapacidadField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTipoEquipoField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jCategoriaEquipoField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jCodigoEquipoField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jMarcaEquipoField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jModeloEquipoField" alignment="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace pref="448" max="32767" attributes="0"/>
+                      <EmptySpace pref="337" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -92,31 +94,31 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Component id="jCodigoEquipoField" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="jMarcaEquipoField" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="jModeloEquipoField" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="jCategoriaEquipoField" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="jTipoEquipoField" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="jCapacidadField" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="jRefrigeranteField" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="jEspacioMaximoField" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="jControlRemotoField" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="jInstalacionField" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="jPrecioField" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="jAnchoField" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="jAltoField" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
                       <Component id="jDescripcionField" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
