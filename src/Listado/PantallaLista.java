@@ -12,6 +12,7 @@ import Entidades.Ventilador;
 import Entidades.VentiladorItemDTO;
 import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLightLaf;
+import java.awt.Checkbox;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -40,8 +41,6 @@ public class PantallaLista extends javax.swing.JFrame {
     private ArrayList<VentiladorItemDTO> lista   = new ArrayList<>();
     private String columSearch = "";
     private String whereText = "";
-    private ArrayList<JPanel> panels   = new ArrayList<>();
-    private JPanel selectedPanel;
     
     /**
      * Creates new form PantallaLista
@@ -55,6 +54,7 @@ public class PantallaLista extends javax.swing.JFrame {
         jScrollPane2.getVerticalScrollBar().setUnitIncrement(16);
         barraBotones1.setPadre(this);
         barraBotones1.jButtonProduct.setEnabled(false);
+        checkboxFilter.setVisible(false);
         
         for (VentiladorItemDTO ventiladorDTO : listadoController.getVentiladoresItems()) {
             lista.add(ventiladorDTO);
@@ -71,83 +71,90 @@ public class PantallaLista extends javax.swing.JFrame {
         DefaultTableModel model  = new DefaultTableModel( data.stream().toArray(String[][]::new), colums );
         jTable1.setModel( model );
         
+        dropdownFilter.jLabelText.setText("filtrar por");
         
-        codigoSearchFilter.jLabelText.setText("Codigo");
-        espacioMaximoSearchFilter.jLabelText.setText("Espacio Maximo");
-        precioMaxSearchFilter.jLabelText.setText("Precio Minimo");
-        precioMinSearchFilter.jLabelText.setText("Precio Maximo");
-        altoSearchFilter.jLabelText.setText("Alto");
-        anchoSearchFilter.jLabelText.setText("Ancho");
-        controlRemooCheckboxFilter.jLabelText.setText("Control Remoto");
-        instalacionCheckboxFilter.jLabelText.setText("Instalacion");
-        categoriaDropdownFilter.jLabelText.setText("Categoria");
-        capacidadDropdownFilter.jLabelText.setText("Capacidad");
-        marcaDropdownFilter.jLabelText.setText("Marca");
-        modeloDropdownFilter.jLabelText.setText("Modelo");
-        refrigeranteDropdownFilter.jLabelText.setText("Refrigerante");
-        tipoEquipoDropdownFilter.jLabelText.setText("Tipo Equipo");
+        dropdownFilter.jComboBox.addItem("Codigo");
+        dropdownFilter.jComboBox.addItem("Categoria");
+        dropdownFilter.jComboBox.addItem("Espacio Maximo");
+        dropdownFilter.jComboBox.addItem("Precio Inferior a");
+        dropdownFilter.jComboBox.addItem("Precio Superior a");
+        dropdownFilter.jComboBox.addItem("Alto");
+        dropdownFilter.jComboBox.addItem("Ancho");
+        dropdownFilter.jComboBox.addItem("Tiene Control Remoto");
+        dropdownFilter.jComboBox.addItem("Tiene Instalacion");
+        dropdownFilter.jComboBox.addItem("Capacidad");
+        dropdownFilter.jComboBox.addItem("Marca");
+        dropdownFilter.jComboBox.addItem("Modelo");
+        dropdownFilter.jComboBox.addItem("Refrigerante");
+        dropdownFilter.jComboBox.addItem("Tipo Equipo");
         
-        panels.add(codigoSearchFilter);
-        panels.add(espacioMaximoSearchFilter);
-        panels.add(precioMaxSearchFilter);
-        panels.add(precioMinSearchFilter);
-        panels.add(altoSearchFilter);
-        panels.add(anchoSearchFilter);
-        panels.add(controlRemooCheckboxFilter);
-        panels.add(instalacionCheckboxFilter);
-        panels.add(categoriaDropdownFilter);
-        panels.add(capacidadDropdownFilter);
-        panels.add(marcaDropdownFilter);
-        panels.add(modeloDropdownFilter);
-        panels.add(refrigeranteDropdownFilter);
-        panels.add(tipoEquipoDropdownFilter);
-        
-        capacidadDropdownFilter.jComboBox.addItemListener((ItemEvent e) -> {
+        searchFilter.jLabelText.setText("ingrese busqueda");
+      
+        dropdownFilter.jComboBox.addItemListener((ItemEvent e) -> {
             
-            int temp = capacidadDropdownFilter.jComboBox.getSelectedIndex();
-            columSearch = "capacidad";
-            whereText = columSearch + " = " + (int)capacidadDropdownFilter.jComboBox.getSelectedItem();
-            resetFilters();
-            capacidadDropdownFilter.jComboBox.setSelectedIndex(temp);
+            switch(dropdownFilter.jComboBox.getSelectedIndex()){
+                case 1:
+                    columSearch = "codigo";
+                    visibleCheck(false);
+                    break;
+                case 2:
+                    columSearch = "categoria";
+                    visibleCheck(false);
+                    break;
+                case 3:
+                    columSearch = "EspacioMaximo";
+                    visibleCheck(false);
+                    break;
+                case 4:
+                    columSearch = "precio";
+                    visibleCheck(false);
+                    break;
+                case 5:
+                    columSearch = "precio";
+                    visibleCheck(false);
+                    break;
+                case 6:
+                    columSearch = "alto";
+                    visibleCheck(false);
+                    break;
+                case 7:
+                    columSearch = "ancho";
+                    visibleCheck(false);
+                    break;
+                case 8:
+                    columSearch = "ControlRemoto";
+                    visibleCheck(true);
+                    break;
+                case 9:
+                    columSearch = "Instalacion";
+                    visibleCheck(true);
+                    break;
+                case 10:
+                    columSearch = "capacidad";
+                    visibleCheck(false);
+                    break;
+                case 11:
+                    columSearch = "marca";
+                    visibleCheck(false);
+                    break;
+                case 12:
+                    columSearch = "modelo";
+                    visibleCheck(false);
+                    break;
+                case 13:
+                    columSearch = "refrigerante";
+                    visibleCheck(false);
+                    break;
+                case 14:
+                    columSearch = "TipoEquipo";
+                    visibleCheck(false);
+                    break;
+                default:
+                    break;
+            }
         });
-        
-        categoriaDropdownFilter.jComboBox.addItemListener((ItemEvent e) -> {
-            
-            int temp = categoriaDropdownFilter.jComboBox.getSelectedIndex();
-            columSearch = "categoria";
-            whereText = columSearch + " = '%" + (String)categoriaDropdownFilter.jComboBox.getSelectedItem() + "%'";
-            resetFilters();
-            categoriaDropdownFilter.jComboBox.setSelectedIndex(temp);
-        });
-        
-        marcaDropdownFilter.jComboBox.addItemListener((ItemEvent e) -> {
-            
-            int temp = marcaDropdownFilter.jComboBox.getSelectedIndex();
-            columSearch = "marca";
-            whereText = columSearch + " = '%" + (String)marcaDropdownFilter.jComboBox.getSelectedItem() + "%'";
-            resetFilters();
-            marcaDropdownFilter.jComboBox.setSelectedIndex(temp);
-        });
-        
-        modeloDropdownFilter.jComboBox.addItemListener((ItemEvent e) -> {
-            
-            int temp = modeloDropdownFilter.jComboBox.getSelectedIndex();
-            columSearch = "modelo";
-            whereText = columSearch + " = '%" + (String)modeloDropdownFilter.jComboBox.getSelectedItem() + "%'";
-            resetFilters();
-            modeloDropdownFilter.jComboBox.setSelectedIndex(temp);
-        });
-        
-        tipoEquipoDropdownFilter.jComboBox.addItemListener((ItemEvent e) -> {
-            
-            int temp = tipoEquipoDropdownFilter.jComboBox.getSelectedIndex();
-            columSearch = "TipoEquipo";
-            whereText = columSearch + " = '%" + (String)tipoEquipoDropdownFilter.jComboBox.getSelectedItem() + "%'";
-            resetFilters();
-            tipoEquipoDropdownFilter.jComboBox.setSelectedIndex(temp);
-        });
-        
-        codigoSearchFilter.jTextField.addKeyListener(new KeyListener() {
+
+        searchFilter.jTextField.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
             }
@@ -159,181 +166,78 @@ public class PantallaLista extends javax.swing.JFrame {
             @Override
             public void keyReleased(KeyEvent e) {
                 
-                String temp = codigoSearchFilter.jTextField.getText();
-                columSearch = "codigo";
-                whereText = columSearch + " = '%" + temp + "%'";
-                resetFilters();
-                codigoSearchFilter.jTextField.setText(temp);
+            switch(dropdownFilter.jComboBox.getSelectedIndex()){
+                //            Codigo
+                case 1:
+                    whereText = columSearch + " = '%" + searchFilter.jTextField.getText() + "%'";
+                    break;
+                //            Categoria
+                case 2:
+                    whereText = columSearch + " = '%" + searchFilter.jTextField.getText() + "%'";
+                    break;
+                //            Espacio Maximo
+                case 3:
+                    whereText = columSearch + " = " + searchFilter.jTextField.getText();
+                    break;
+                //            Precio Inferior a
+                case 4:
+                    whereText = columSearch + " <= " + searchFilter.jTextField.getText();
+                    break;
+                //            Precio Superior a
+                case 5:
+                    whereText = columSearch + " >= " + searchFilter.jTextField.getText();
+                    break;
+                //            Alto
+                case 6:
+                    whereText = columSearch + " = " + searchFilter.jTextField.getText();
+                    break;
+                //            Ancho
+                case 7:
+                    whereText = columSearch + " = " + searchFilter.jTextField.getText();
+                    break;
+                //            Tiene Control Remoto
+                case 8:
+                    System.out.println("remoto: " + checkboxFilter.jCheckBox.getText());
+                    whereText = columSearch + " = " + checkboxFilter.jCheckBox.getText();
+                    break;
+                //            Tiene Instalacion
+                case 9:
+                    System.out.println("instalacion: " + checkboxFilter.jCheckBox.getText());
+                    //checkboxFilter.jCheckBox.isSelected()
+                    whereText = columSearch + " = " + checkboxFilter.jCheckBox.getText();
+                    break;
+                //            Capacidad
+                case 10:
+                    whereText = columSearch + " = " + searchFilter.jTextField.getText();
+                    break;
+                //            Marca
+                case 11:
+                    whereText = columSearch + " = '%" + searchFilter.jTextField.getText() + "%'";
+                    break;
+                //            Modelo
+                case 12:
+                    whereText = columSearch + " = '%" + searchFilter.jTextField.getText() + "%'";
+                    break;
+                //            Refrigerante
+                case 13:
+                    whereText = columSearch + " = " + searchFilter.jTextField.getText();
+                    break;
+                //            Tipo Equipo
+                case 14:
+                    whereText = columSearch + " = '%" + searchFilter.jTextField.getText() + "%'";
+                    break;
+                default:
+                    break;
+            }
             }
         });
-        
-        espacioMaximoSearchFilter.jTextField.addFocusListener(new FocusListener() {
-            @Override
-            public void focusGained(FocusEvent e) {
-                
-            }
-
-            @Override
-            public void focusLost(FocusEvent e) {
-                
-                try{
-                    int value = Integer.valueOf(espacioMaximoSearchFilter.jTextField.getText());
-                    if(value < 0) return;
-                    System.out.println("es numero");
-                }
-                catch(Exception ex){
-                    JOptionPane.showMessageDialog(null, "En el campo Espacio Maximo, ingrese solo numeros", "Error", 0);
-                }
-            }
-        });
-        espacioMaximoSearchFilter.jTextField.addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-            }
-
-            @Override
-            public void keyPressed(KeyEvent e) {
-            }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-                
-                String temp = espacioMaximoSearchFilter.jTextField.getText();
-                columSearch = "EspacioMaximo";
-                whereText = columSearch + " = " + temp;
-                resetFilters();
-                espacioMaximoSearchFilter.jTextField.setText(temp);
-            }
-        });
-        
-        precioMaxSearchFilter.jTextField.addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-            }
-
-            @Override
-            public void keyPressed(KeyEvent e) {
-            }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-                
-                String temp = precioMaxSearchFilter.jTextField.getText();
-                columSearch = "precio";
-                whereText = columSearch + " >= " + temp;
-                resetFilters();
-                precioMaxSearchFilter.jTextField.setText(temp);
-            }
-        });
-        
-        precioMinSearchFilter.jTextField.addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-            }
-
-            @Override
-            public void keyPressed(KeyEvent e) {
-            }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-                
-                String temp = precioMinSearchFilter.jTextField.getText();
-                columSearch = "precio";
-                whereText = columSearch + " <= " + temp;
-                resetFilters();
-                precioMinSearchFilter.jTextField.setText(temp);
-            }
-        });
-        
-        altoSearchFilter.jTextField.addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-            }
-
-            @Override
-            public void keyPressed(KeyEvent e) {
-            }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-                String temp = altoSearchFilter.jTextField.getText();
-                columSearch = "alto";
-                whereText = columSearch + " = " + temp;
-                resetFilters();
-                altoSearchFilter.jTextField.setText(temp);
-            }
-        });
-        
-        anchoSearchFilter.jTextField.addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-            }
-
-            @Override
-            public void keyPressed(KeyEvent e) {
-            }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-                
-                String temp = anchoSearchFilter.jTextField.getText();
-                columSearch = "ancho";
-                whereText = columSearch + " = " + temp;
-                resetFilters();
-                anchoSearchFilter.jTextField.setText(temp);
-            }
-        });
-        
-        controlRemooCheckboxFilter.jCheckBox.addActionListener((ActionEvent e) -> {
-            boolean temp = controlRemooCheckboxFilter.jCheckBox.isSelected();
-            columSearch = "ControlRemoto";
-            whereText = columSearch + " = " + (temp ? "1" : "0");
-            resetFilters();
-            controlRemooCheckboxFilter.jCheckBox.setSelected(temp);
-        });
-        
-        instalacionCheckboxFilter.jCheckBox.addActionListener((ActionEvent e) -> {
-            boolean temp = controlRemooCheckboxFilter.jCheckBox.isSelected();
-            columSearch = "Instalacion";
-            whereText = columSearch + " = " + (temp ? "1" : "0");
-            resetFilters();
-            instalacionCheckboxFilter.jCheckBox.setSelected(temp);
-        });
-        
-        for (Categoria categoria : listadoController.getCategorias()) {
-            categoriaDropdownFilter.jComboBox.addItem(categoria.getDescripcion());
-        }
-        
-//        categoriaDropdownFilter.jComboBox.addItemListener((ItemEvent e) -> {
-//            if(categoriaDropdownFilter.jComboBox.getSelectedIndex() == 0) return;
-//            categoriaDropdownFilter.jComboBox.setForeground(
-//                categoriaDropdownFilter.jComboBox.getSelectedIndex() != 0 ?
-//                new Color(51,51,51) : new Color(153,153,153)
-//            );
-//        });
-
-        for (Capacidad capacidad : listadoController.getCapacidades()) {
-            capacidadDropdownFilter.jComboBox.addItem(capacidad.getCapacidad().toString());
-        }
-        
-        for (Refrigerante refrigerante : listadoController.getRefrigerantes()) {
-            refrigeranteDropdownFilter.jComboBox.addItem(refrigerante.getName());
-        }
-       
-        for (TipoEquipo tipoEquipo : listadoController.getTipoEquipos()) {
-            tipoEquipoDropdownFilter.jComboBox.addItem(tipoEquipo.getName());
-        }
-        
-        for (String marca : listadoController.getMarcas()) {
-            marcaDropdownFilter.jComboBox.addItem(marca);
-        }
-                
-        for (String modelo : listadoController.getModelos()) {
-            modeloDropdownFilter.jComboBox.addItem(modelo);
-        }
     }
 
+    private void visibleCheck(boolean value){
+        searchFilter.setVisible(!value);
+        checkboxFilter.setVisible(value);
+    }
+    
     private void updateTableModel(){
         //TODO: revisar porque no se vacia si no hay resultados, ademas se podria indicar notificacion que no encontro resultados
         ArrayList<Ventilador> listaTemp = listadoController.getVentiladorFilter(whereText);
@@ -361,23 +265,6 @@ public class PantallaLista extends javax.swing.JFrame {
         DefaultTableModel model  = new DefaultTableModel( data.stream().toArray(String[][]::new), colums );
         jTable1.setModel( model );
     }
-   
-    
-    private void resetFilters(){
-        instalacionCheckboxFilter.jCheckBox.setSelected(false);
-        controlRemooCheckboxFilter.jCheckBox.setSelected(false);
-        codigoSearchFilter.jTextField.setText("");
-        anchoSearchFilter.jTextField.setText("");
-        espacioMaximoSearchFilter.jTextField.setText("");
-        precioMaxSearchFilter.jTextField.setText("");
-        precioMinSearchFilter.jTextField.setText("");
-        altoSearchFilter.jTextField.setText("");
-        capacidadDropdownFilter.jComboBox.setSelectedIndex(0);
-        categoriaDropdownFilter.jComboBox.setSelectedIndex(0);
-        marcaDropdownFilter.jComboBox.setSelectedIndex(0);
-        modeloDropdownFilter.jComboBox.setSelectedIndex(0);
-        tipoEquipoDropdownFilter.jComboBox.setSelectedIndex(0);
-    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -395,22 +282,10 @@ public class PantallaLista extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         barraBotones1 = new proyectosemestral.Paneles.BarraBotones();
         jButtonSearchSuperior = new javax.swing.JButton();
-        codigoSearchFilter = new FiltroPanels.SearchFilter();
-        categoriaDropdownFilter = new FiltroPanels.DropdownFilter();
-        capacidadDropdownFilter = new FiltroPanels.DropdownFilter();
-        tipoEquipoDropdownFilter = new FiltroPanels.DropdownFilter();
-        espacioMaximoSearchFilter = new FiltroPanels.SearchFilter();
-        marcaDropdownFilter = new FiltroPanels.DropdownFilter();
-        modeloDropdownFilter = new FiltroPanels.DropdownFilter();
-        controlRemooCheckboxFilter = new FiltroPanels.CheckboxFilter();
-        instalacionCheckboxFilter = new FiltroPanels.CheckboxFilter();
-        precioMinSearchFilter = new FiltroPanels.SearchFilter();
-        precioMaxSearchFilter = new FiltroPanels.SearchFilter();
-        anchoSearchFilter = new FiltroPanels.SearchFilter();
-        altoSearchFilter = new FiltroPanels.SearchFilter();
-        refrigeranteDropdownFilter = new FiltroPanels.DropdownFilter();
-        jButtonSearchInferior = new javax.swing.JButton();
+        searchFilter = new FiltroPanels.SearchFilter();
+        dropdownFilter = new FiltroPanels.DropdownFilter();
         jLabel1 = new javax.swing.JLabel();
+        checkboxFilter = new FiltroPanels.CheckboxFilter();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -449,14 +324,6 @@ public class PantallaLista extends javax.swing.JFrame {
             }
         });
 
-        jButtonSearchInferior.setBackground(new java.awt.Color(31, 106, 178));
-        jButtonSearchInferior.setText("BUSCAR");
-        jButtonSearchInferior.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSearchInferiorActionPerformed(evt);
-            }
-        });
-
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Filtros");
@@ -469,28 +336,14 @@ public class PantallaLista extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(controlRemooCheckboxFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(capacidadDropdownFilter, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
-                                    .addComponent(tipoEquipoDropdownFilter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(espacioMaximoSearchFilter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButtonSearchSuperior, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(marcaDropdownFilter, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(modeloDropdownFilter, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(categoriaDropdownFilter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(codigoSearchFilter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addComponent(instalacionCheckboxFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(precioMinSearchFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(precioMaxSearchFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(anchoSearchFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(altoSearchFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(refrigeranteDropdownFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jButtonSearchInferior, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonSearchSuperior, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(dropdownFilter, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+                            .addComponent(searchFilter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(21, 21, 21)
-                                .addComponent(jLabel1)))
+                                .addComponent(jLabel1))
+                            .addComponent(checkboxFilter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane2))
                     .addComponent(barraBotones1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -500,45 +353,22 @@ public class PantallaLista extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(barraBotones1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
+                        .addGap(34, 34, 34)
                         .addComponent(jLabel1)
                         .addGap(18, 18, 18)
                         .addComponent(jButtonSearchSuperior, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(codigoSearchFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(dropdownFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(categoriaDropdownFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(searchFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(capacidadDropdownFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(tipoEquipoDropdownFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(espacioMaximoSearchFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(marcaDropdownFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(modeloDropdownFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(controlRemooCheckboxFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(instalacionCheckboxFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(precioMinSearchFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(precioMaxSearchFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(anchoSearchFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(altoSearchFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(refrigeranteDropdownFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonSearchInferior, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1341, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(42, Short.MAX_VALUE))
+                        .addComponent(checkboxFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(897, Short.MAX_VALUE))
         );
 
         jScrollPane1.setViewportView(jPanel2);
@@ -551,7 +381,7 @@ public class PantallaLista extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 721, Short.MAX_VALUE)
         );
 
         pack();
@@ -595,10 +425,6 @@ public class PantallaLista extends javax.swing.JFrame {
         updateTableModel();
     }//GEN-LAST:event_jButtonSearchSuperiorActionPerformed
 
-    private void jButtonSearchInferiorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchInferiorActionPerformed
-        updateTableModel();
-    }//GEN-LAST:event_jButtonSearchInferiorActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -619,28 +445,16 @@ public class PantallaLista extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private FiltroPanels.SearchFilter altoSearchFilter;
-    private FiltroPanels.SearchFilter anchoSearchFilter;
     private proyectosemestral.Paneles.BarraBotones barraBotones1;
     private proyectosemestral.Paneles.BarraBotonesSuperior barraBotonesSuperior1;
-    private FiltroPanels.DropdownFilter capacidadDropdownFilter;
-    private FiltroPanels.DropdownFilter categoriaDropdownFilter;
-    private FiltroPanels.SearchFilter codigoSearchFilter;
-    private FiltroPanels.CheckboxFilter controlRemooCheckboxFilter;
-    private FiltroPanels.SearchFilter espacioMaximoSearchFilter;
-    private FiltroPanels.CheckboxFilter instalacionCheckboxFilter;
-    private javax.swing.JButton jButtonSearchInferior;
+    private FiltroPanels.CheckboxFilter checkboxFilter;
+    private FiltroPanels.DropdownFilter dropdownFilter;
     private javax.swing.JButton jButtonSearchSuperior;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private FiltroPanels.DropdownFilter marcaDropdownFilter;
-    private FiltroPanels.DropdownFilter modeloDropdownFilter;
-    private FiltroPanels.SearchFilter precioMaxSearchFilter;
-    private FiltroPanels.SearchFilter precioMinSearchFilter;
-    private FiltroPanels.DropdownFilter refrigeranteDropdownFilter;
-    private FiltroPanels.DropdownFilter tipoEquipoDropdownFilter;
+    private FiltroPanels.SearchFilter searchFilter;
     // End of variables declaration//GEN-END:variables
 }
