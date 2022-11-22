@@ -33,6 +33,7 @@ public class BannerInfo extends javax.swing.JPanel {
         setBackground(new java.awt.Color(31, 106, 178));
         setPreferredSize(new java.awt.Dimension(1280, 300));
 
+        jTitleLabel.setForeground(new java.awt.Color(255, 255, 255));
         jTitleLabel.setText("texto");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

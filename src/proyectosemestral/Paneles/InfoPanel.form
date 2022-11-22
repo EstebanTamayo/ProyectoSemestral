@@ -48,6 +48,9 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jTitleLabel">
       <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="titulo"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
       </Properties>
@@ -58,7 +61,7 @@
     <Component class="javax.swing.JLabel" name="jDescLabel">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="99" green="99" red="99" type="rgb"/>
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" value="descripcion"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>

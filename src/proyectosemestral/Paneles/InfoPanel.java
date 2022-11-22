@@ -31,10 +31,11 @@ public class InfoPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(51, 51, 51));
 
+        jTitleLabel.setForeground(new java.awt.Color(255, 255, 255));
         jTitleLabel.setText("titulo");
         jTitleLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jDescLabel.setForeground(new java.awt.Color(153, 153, 153));
+        jDescLabel.setForeground(new java.awt.Color(255, 255, 255));
         jDescLabel.setText("descripcion");
         jDescLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
