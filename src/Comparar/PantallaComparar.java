@@ -36,6 +36,7 @@ public class PantallaComparar extends javax.swing.JFrame {
         barraBotones1.jButtonList.setEnabled(false);
         
         for (VentiladorCompareDTO ventiladorDTO : compararController.getComparaciones()) {
+            
             lista.add(ventiladorDTO);
             data.add(new String[]{
                 ventiladorDTO.getModelo(),

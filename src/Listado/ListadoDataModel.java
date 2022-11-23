@@ -62,19 +62,12 @@ public class ListadoDataModel {
           
         try{
             String sql = "SELECT codigo, categoria, capacidad, TipoEquipo, EspacioMaximo, marca, modelo, ControlRemoto, Instalacion, precio, ancho, alto, descripcion, refrigerante FROM Ventiladores WHERE " + filter;
-            System.out.println(sql);
+            
             Connection connection = DriverManager.getConnection( DataConnection.stringDB, 
                     DataConnection.user,DataConnection.pass );
 
             Statement statement = connection.prepareStatement( sql );
             ResultSet resultSet = statement.executeQuery( sql );
-
-            if(resultSet.next()){
-                System.out.println("hay");
-            }
-            else{
-                System.out.println("no hay");
-            }
             
             while( resultSet.next() )
             {   

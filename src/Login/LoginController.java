@@ -23,9 +23,7 @@ public class LoginController {
    
     public void EnterAction(String user, String pass){
         if(loginDataModel.getUser(user, pass)){
-            //PantallaInicio p = new PantallaInicio();
-            PantallaLista p = new PantallaLista();
-            //PantallaFavoritos p = new PantallaFavoritos();
+            PantallaInicio p = new PantallaInicio();
             p.setVisible(true);
             login.dispose();
         }

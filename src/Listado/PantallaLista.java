@@ -3,28 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Listado;
-
-import Entidades.Capacidad;
-import Entidades.Categoria;
-import Entidades.Refrigerante;
-import Entidades.TipoEquipo;
 import Entidades.Ventilador;
 import Entidades.VentiladorItemDTO;
-import com.formdev.flatlaf.FlatDarkLaf;
 import com.formdev.flatlaf.FlatLightLaf;
-import java.awt.Checkbox;
-import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;
 import proyectosemestral.DataConnection;
@@ -66,8 +55,6 @@ public class PantallaLista extends javax.swing.JFrame {
             });
         }
         
-        //TODO: ver que funcione mayor que precio, menor que precio y lo mismo para espacio,alto,ancho
-        
         DefaultTableModel model  = new DefaultTableModel( data.stream().toArray(String[][]::new), colums );
         jTable1.setModel( model );
         
@@ -89,7 +76,26 @@ public class PantallaLista extends javax.swing.JFrame {
         dropdownFilter.jComboBox.addItem("Tipo Equipo");
         
         searchFilter.jLabelText.setText("ingrese busqueda");
+        searchFilter.jTextField.setText("");
       
+        checkboxFilter.jCheckBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                switch(dropdownFilter.jComboBox.getSelectedIndex()){
+                    //            Tiene Control Remoto
+                    case 8:
+                        whereText = columSearch + " = " + (checkboxFilter.jCheckBox.isSelected() ? "1" : "0");
+                        break;
+                    //            Tiene Instalacion
+                    case 9:
+                        whereText = columSearch + " = " + (checkboxFilter.jCheckBox.isSelected() ? "1" : "0");
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
+        
         dropdownFilter.jComboBox.addItemListener((ItemEvent e) -> {
             
             switch(dropdownFilter.jComboBox.getSelectedIndex()){
@@ -169,11 +175,11 @@ public class PantallaLista extends javax.swing.JFrame {
             switch(dropdownFilter.jComboBox.getSelectedIndex()){
                 //            Codigo
                 case 1:
-                    whereText = columSearch + " = '%" + searchFilter.jTextField.getText() + "%'";
+                    whereText = columSearch + " LIKE '%" + searchFilter.jTextField.getText().toUpperCase() + "%'";
                     break;
                 //            Categoria
                 case 2:
-                    whereText = columSearch + " = '%" + searchFilter.jTextField.getText() + "%'";
+                    whereText = columSearch + " LIKE '%" + searchFilter.jTextField.getText().toUpperCase() + "%'";
                     break;
                 //            Espacio Maximo
                 case 3:
@@ -195,36 +201,25 @@ public class PantallaLista extends javax.swing.JFrame {
                 case 7:
                     whereText = columSearch + " = " + searchFilter.jTextField.getText();
                     break;
-                //            Tiene Control Remoto
-                case 8:
-                    System.out.println("remoto: " + checkboxFilter.jCheckBox.getText());
-                    whereText = columSearch + " = " + checkboxFilter.jCheckBox.getText();
-                    break;
-                //            Tiene Instalacion
-                case 9:
-                    System.out.println("instalacion: " + checkboxFilter.jCheckBox.getText());
-                    //checkboxFilter.jCheckBox.isSelected()
-                    whereText = columSearch + " = " + checkboxFilter.jCheckBox.getText();
-                    break;
                 //            Capacidad
                 case 10:
-                    whereText = columSearch + " = " + searchFilter.jTextField.getText();
+                    whereText = columSearch + " = " + searchFilter.jTextField.getText().toUpperCase();
                     break;
                 //            Marca
                 case 11:
-                    whereText = columSearch + " = '%" + searchFilter.jTextField.getText() + "%'";
+                    whereText = columSearch + " LIKE '%" + searchFilter.jTextField.getText().toUpperCase() + "%'";
                     break;
                 //            Modelo
                 case 12:
-                    whereText = columSearch + " = '%" + searchFilter.jTextField.getText() + "%'";
+                    whereText = columSearch + " LIKE '%" + searchFilter.jTextField.getText().toUpperCase() + "%'";
                     break;
                 //            Refrigerante
                 case 13:
-                    whereText = columSearch + " = " + searchFilter.jTextField.getText();
+                    whereText = columSearch + " LIKE '%" + searchFilter.jTextField.getText().toUpperCase() + "%'";
                     break;
                 //            Tipo Equipo
                 case 14:
-                    whereText = columSearch + " = '%" + searchFilter.jTextField.getText() + "%'";
+                    whereText = columSearch + " LIKE '%" + searchFilter.jTextField.getText().toUpperCase() + "%'";
                     break;
                 default:
                     break;
@@ -239,29 +234,39 @@ public class PantallaLista extends javax.swing.JFrame {
     }
     
     private void updateTableModel(){
-        //TODO: revisar porque no se vacia si no hay resultados, ademas se podria indicar notificacion que no encontro resultados
+        
         ArrayList<Ventilador> listaTemp = listadoController.getVentiladorFilter(whereText);
         
-        for (int i = 0; i < listaTemp.size(); i++) {
-            
-            Ventilador v = listaTemp.get(i);
-            
-            lista.add(new VentiladorItemDTO(
-                i,
-                v.getModelo(),
-                v.getMarca(),
-                v.getTipoEquipo(),
-                v.isInstalacion(),
-                v.getPrecio()
-            ));
-            
-            data.add(new String[]{
-                v.getModelo(),
-                v.getMarca(),
-                v.getTipoEquipo(),
-                v.getPrecio().toString()
-            });
+        data   = new ArrayList<>();
+        lista   = new ArrayList<>();
+        
+        if(listaTemp.isEmpty()){
+            JOptionPane.showMessageDialog(this, "No se ha encontrado ningun dato", "Notificacion", 1);
         }
+        else
+        {
+            for (int i = 0; i < listaTemp.size(); i++) {
+            
+                Ventilador v = listaTemp.get(i);
+
+                lista.add(new VentiladorItemDTO(
+                    i,
+                    v.getModelo(),
+                    v.getMarca(),
+                    v.getTipoEquipo(),
+                    v.isInstalacion(),
+                    v.getPrecio()
+                ));
+
+                data.add(new String[]{
+                    v.getModelo(),
+                    v.getMarca(),
+                    v.getTipoEquipo(),
+                    v.getPrecio().toString()
+                });
+            }
+        }
+        
         DefaultTableModel model  = new DefaultTableModel( data.stream().toArray(String[][]::new), colums );
         jTable1.setModel( model );
     }
