@@ -32,7 +32,7 @@ public class DropdownFilter extends javax.swing.JPanel {
 
         jLabelText.setText("texto");
 
-        jComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "escoge una opcion" }));
+        jComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "escoga una opcion" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

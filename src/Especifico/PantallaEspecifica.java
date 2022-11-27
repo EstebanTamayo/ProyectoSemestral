@@ -4,10 +4,7 @@
  */
 package Especifico;
 
-import Comparar.PantallaComparar;
 import Entidades.Ventilador;
-import Favoritos.PantallaFavoritos;
-import Listado.PantallaLista;
 import com.formdev.flatlaf.FlatLightLaf;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
@@ -216,6 +213,7 @@ public class PantallaEspecifica extends javax.swing.JFrame {
         jPanel2.setPreferredSize(new java.awt.Dimension(400, 157));
 
         jButtonComparar.setBackground(new java.awt.Color(31, 106, 178));
+        jButtonComparar.setForeground(new java.awt.Color(255, 255, 255));
         jButtonComparar.setText("Comparar");
         jButtonComparar.setToolTipText("");
         jButtonComparar.addActionListener(new java.awt.event.ActionListener() {
@@ -225,6 +223,7 @@ public class PantallaEspecifica extends javax.swing.JFrame {
         });
 
         jButtonFavoritos.setBackground(new java.awt.Color(31, 106, 178));
+        jButtonFavoritos.setForeground(new java.awt.Color(255, 255, 255));
         jButtonFavoritos.setText("Agregar Favoritos");
         jButtonFavoritos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -338,8 +337,8 @@ public class PantallaEspecifica extends javax.swing.JFrame {
                 .addComponent(LineaPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 8, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(EspecificationSection, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 295, Short.MAX_VALUE)))
+                    .addComponent(EspecificationSection, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)))
         );
 
         jScrollPane1.setViewportView(jPanel1);

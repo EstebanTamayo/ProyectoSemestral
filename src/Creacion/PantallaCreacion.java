@@ -17,8 +17,6 @@ import java.awt.event.FocusListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.ArrayList;
-import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 
@@ -52,8 +50,6 @@ public class PantallaCreacion extends javax.swing.JFrame {
     private boolean tipoEquipoOK = false;
     private boolean capacidadOK = false;
     private boolean refrigeranteOK = false;
-    
-    private Set<String> numErrors;
   
     /**
      * Creates new form PantallaCreacion
@@ -589,9 +585,11 @@ public class PantallaCreacion extends javax.swing.JFrame {
             && precioOK && anchoOK && altoOK && descripcionOK
             && categoriaEquipoOK && tipoEquipoOK && capacidadOK && refrigeranteOK
         ){  
+            barraPanelCreacion1.jContinueButton.setForeground(new Color(255,255,255));
             barraPanelCreacion1.jContinueButton.setEnabled(true);
         }
         else{
+            barraPanelCreacion1.jContinueButton.setForeground(new Color(187,187,187));
             barraPanelCreacion1.jContinueButton.setEnabled(false);
         }
     }

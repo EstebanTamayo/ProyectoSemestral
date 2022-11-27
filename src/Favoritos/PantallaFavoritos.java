@@ -6,7 +6,6 @@ package Favoritos;
 
 import Entidades.VentiladorItemDTO;
 import com.formdev.flatlaf.FlatLightLaf;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import javax.swing.UIManager;
 import javax.swing.table.DefaultTableModel;

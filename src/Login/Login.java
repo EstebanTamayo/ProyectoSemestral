@@ -158,6 +158,7 @@ public class Login extends javax.swing.JFrame {
         if(firstUser){
             lblUsuario.setText("");
             lblUsuario.setForeground(new Color(51,51,51));
+            jButton1.setForeground(new Color(255,255,255));
             firstUser = false;
         }
     }//GEN-LAST:event_lblUsuarioKeyPressed
@@ -168,6 +169,7 @@ public class Login extends javax.swing.JFrame {
         if(lblUsuario.getText().length() == 0){
             lblUsuario.setText("Ingrese usuario");
             lblUsuario.setForeground(new Color(153,153,153));
+            jButton1.setForeground(new Color(187,187,187));
             firstUser = true;
         }
     }//GEN-LAST:event_lblUsuarioFocusLost

@@ -36,6 +36,7 @@ public class BarraPanelCreacion extends javax.swing.JPanel {
         jTitleLabel.setText("Modo Creacion");
 
         jBackButton.setBackground(new java.awt.Color(31, 106, 178));
+        jBackButton.setForeground(new java.awt.Color(255, 255, 255));
         jBackButton.setText("Volver");
 
         jContinueButton.setBackground(new java.awt.Color(31, 106, 178));

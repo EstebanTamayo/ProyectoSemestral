@@ -49,6 +49,7 @@ public class BarraBotones extends javax.swing.JPanel {
         setBackground(new java.awt.Color(255, 255, 255));
 
         jButtonProduct.setBackground(new java.awt.Color(31, 106, 178));
+        jButtonProduct.setForeground(new java.awt.Color(255, 255, 255));
         jButtonProduct.setText("Productos");
         jButtonProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -57,6 +58,7 @@ public class BarraBotones extends javax.swing.JPanel {
         });
 
         jButtonList.setBackground(new java.awt.Color(31, 106, 178));
+        jButtonList.setForeground(new java.awt.Color(255, 255, 255));
         jButtonList.setText("Comparar");
         jButtonList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,6 +67,7 @@ public class BarraBotones extends javax.swing.JPanel {
         });
 
         jButtonFav.setBackground(new java.awt.Color(31, 106, 178));
+        jButtonFav.setForeground(new java.awt.Color(255, 255, 255));
         jButtonFav.setText("Favoritos");
         jButtonFav.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +76,7 @@ public class BarraBotones extends javax.swing.JPanel {
         });
 
         jButtonCrear.setBackground(new java.awt.Color(31, 106, 178));
+        jButtonCrear.setForeground(new java.awt.Color(255, 255, 255));
         jButtonCrear.setText("Crear");
         jButtonCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

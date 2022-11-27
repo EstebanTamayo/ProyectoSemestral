@@ -187,16 +187,16 @@ CREATE TABLE `ventiladores` (
 --
 
 INSERT INTO `ventiladores` (`id`, `codigo`, `categoria`, `capacidad`, `TipoEquipo`, `EspacioMaximo`, `marca`, `modelo`, `ControlRemoto`, `Instalacion`, `precio`, `ancho`, `alto`, `descripcion`, `refrigerante`) VALUES
-(16, 'K1', 'CONVENCIONAL', 9000, 'SPLIT MURO', 18, 'KHONE', 'CM-09HVAC', b'0', b'0', 386750, 2, 1, 'Equipo de Aire Acondicionado Frio y Calor convencional, sin instalacion incluida, con refrigerante ecologico', 'R-410A'),
-(17, 'K2', 'CONVENCIONAL', 12000, 'SPLIT MURO', 28, 'KHONE', 'CM-12HVAC', b'0', b'0', 409063, 2, 1, 'Equipo de Aire Acondicionado Frio y Calor convencional, sin instalacion incluida, con refrigerante ecologico', 'R-410A'),
-(18, 'K3', 'CONVENCIONAL', 18000, 'SPLIT MURO', 36, 'KHONE', 'CM-18HVAC', b'0', b'0', 610315, 2, 1, 'Equipo de Aire Acondicionado Frio y Calor convencional, sin instalacion incluida', 'R-22'),
-(19, 'K4', 'INVERTER', 24000, 'SPLIT MURO', 45, 'KHONE', 'IM-24HVAC', b'1', b'1', 1082900, 2, 2, 'Equipo de aire acondicionado Frio y Calor inverter (ahorro energetico), equipo cuenta con refrigerante R-410A lo que lo hace ecologico, equipo cuenta con instalacion incluida y a su vez cuenta con un control remoto inteligente', 'R-410A'),
-(20, 'K5', 'INVERTER', 9000, 'SPLIT PISO CIELO', 18, 'KHONE', 'IPS-09HVAC', b'1', b'1', 405650, 3, 1, 'Equipo de aire acondicionado tipo inverter, cuenta con control remoto inteligente y con instalacion, equipo Frio y Calor', 'R-410A'),
-(21, 'K6', 'CONVENCIONAL', 18000, 'SPLIT PISO CIELO', 36, 'KHONE', 'CPS-12HVAC', b'0', b'1', 832500, 4, 1, 'Equipo de aire acondicionado Frio y Calor convencional, cuenta con instalacion', 'R-22'),
-(22, 'K7', 'INVERTER', 18000, 'SPLIT CASSETTE', 36, 'KHONE', 'IC-18HVAC', b'1', b'1', 812650, 3, 2, 'Equipo de aire acondicionado Frio y Calor Inverter, cuenta con control remoto inteligente, tambien tiene refrigerante ecologico R-410A y cuenta con instalacion', 'R-410A'),
-(23, 'K8', 'CONVENCIONAL', 24000, 'SPLIT CASSETTE', 45, 'KHONE', 'CC-24HVAC', b'0', b'0', 980000, 3, 2, 'Equipo de aire acondicionado Frio y Calor convencional', 'R-22'),
-(24, 'K9', 'INVERTER', 12000, 'SPLIT DUCTO', 28, 'KHONE', 'ID-12HVAC', b'1', b'0', 590850, 4, 1, 'Equipo de aire acondicionado inverter y ecologico, cuenta con control remoto inteligente', 'R-410A'),
-(25, 'K10', 'CONVENCIONAL', 18000, 'SPLIT DUCTO', 36, 'KHONE', 'CD-18HVAC', b'0', b'1', 765000, 3, 2, 'Equipo de aire acondicionado Frio y Calor convencional, viene con instalacion incluida', 'R-22');
+(0, 'K1', 'CONVENCIONAL', 9000, 'SPLIT MURO', 18, 'KHONE', 'CM-09HVAC', b'0', b'0', 386750, 2, 1, 'Equipo de Aire Acondicionado Frio y Calor convencional, sin instalacion incluida, con refrigerante ecologico', 'R-410A'),
+(1, 'K2', 'CONVENCIONAL', 12000, 'SPLIT MURO', 28, 'KHONE', 'CM-12HVAC', b'0', b'0', 409063, 2, 1, 'Equipo de Aire Acondicionado Frio y Calor convencional, sin instalacion incluida, con refrigerante ecologico', 'R-410A'),
+(2, 'K3', 'CONVENCIONAL', 18000, 'SPLIT MURO', 36, 'KHONE', 'CM-18HVAC', b'0', b'0', 610315, 2, 1, 'Equipo de Aire Acondicionado Frio y Calor convencional, sin instalacion incluida', 'R-22'),
+(3, 'K4', 'INVERTER', 24000, 'SPLIT MURO', 45, 'KHONE', 'IM-24HVAC', b'1', b'1', 1082900, 2, 2, 'Equipo de aire acondicionado Frio y Calor inverter (ahorro energetico), equipo cuenta con refrigerante R-410A lo que lo hace ecologico, equipo cuenta con instalacion incluida y a su vez cuenta con un control remoto inteligente', 'R-410A'),
+(4, 'K5', 'INVERTER', 9000, 'SPLIT PISO CIELO', 18, 'KHONE', 'IPS-09HVAC', b'1', b'1', 405650, 3, 1, 'Equipo de aire acondicionado tipo inverter, cuenta con control remoto inteligente y con instalacion, equipo Frio y Calor', 'R-410A'),
+(5, 'K6', 'CONVENCIONAL', 18000, 'SPLIT PISO CIELO', 36, 'KHONE', 'CPS-12HVAC', b'0', b'1', 832500, 4, 1, 'Equipo de aire acondicionado Frio y Calor convencional, cuenta con instalacion', 'R-22'),
+(6, 'K7', 'INVERTER', 18000, 'SPLIT CASSETTE', 36, 'KHONE', 'IC-18HVAC', b'1', b'1', 812650, 3, 2, 'Equipo de aire acondicionado Frio y Calor Inverter, cuenta con control remoto inteligente, tambien tiene refrigerante ecologico R-410A y cuenta con instalacion', 'R-410A'),
+(7, 'K8', 'CONVENCIONAL', 24000, 'SPLIT CASSETTE', 45, 'KHONE', 'CC-24HVAC', b'0', b'0', 980000, 3, 2, 'Equipo de aire acondicionado Frio y Calor convencional', 'R-22'),
+(8, 'K9', 'INVERTER', 12000, 'SPLIT DUCTO', 28, 'KHONE', 'ID-12HVAC', b'1', b'0', 590850, 4, 1, 'Equipo de aire acondicionado inverter y ecologico, cuenta con control remoto inteligente', 'R-410A'),
+(9, 'K10', 'CONVENCIONAL', 18000, 'SPLIT DUCTO', 36, 'KHONE', 'CD-18HVAC', b'0', b'1', 765000, 3, 2, 'Equipo de aire acondicionado Frio y Calor convencional, viene con instalacion incluida', 'R-22');
 
 --
 -- Índices para tablas volcadas
