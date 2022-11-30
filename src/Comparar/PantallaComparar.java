@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author lr56c
+ * @author Esteban
  */
 public class PantallaComparar extends javax.swing.JFrame {
 

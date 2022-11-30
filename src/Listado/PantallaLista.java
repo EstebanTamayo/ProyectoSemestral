@@ -20,7 +20,7 @@ import proyectosemestral.DataConnection;
 
 /**
  *
- * @author lr56c
+ * @author esteb
  */
 public class PantallaLista extends javax.swing.JFrame {
 

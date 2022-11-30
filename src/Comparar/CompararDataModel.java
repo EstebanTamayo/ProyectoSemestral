@@ -16,7 +16,7 @@ import proyectosemestral.DataConnection;
 
 /**
  *
- * @author mauri
+ * @author Esteban
  */
 public class CompararDataModel {
 

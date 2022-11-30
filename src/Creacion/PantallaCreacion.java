@@ -22,7 +22,7 @@ import javax.swing.UIManager;
 
 /**
  *
- * @author lr56c
+ * @author Esteban
  */
 public class PantallaCreacion extends javax.swing.JFrame {
 

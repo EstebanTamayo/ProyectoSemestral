@@ -6,7 +6,7 @@ package Entidades;
 
 /**
  *
- * @author mauri
+ * @author esteb
  */
 public class VentiladorCompareDTO {
     private Integer id;
